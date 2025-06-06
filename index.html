@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <!-- ← ここではクラス付与しない -->
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>タイトル</title>
+    <meta charset="utf-8" />
+    <title>No-Flicker Loader Demo</title>
+
+    <!-- ① 最優先: 初回判定 -->
+    <script src="/assets/js/loader-init.js"></script>
+
+    <!-- ② ローディング用 CSS -->
+    <link rel="stylesheet" href="/assets/css/loader.css" />
+
+    <!-- ③ ユーティリティ & ブートローダー -->
+    <script type="module" defer src="/assets/js/asset-waiter.js"></script>
+    <script type="module" defer src="/assets/js/boot-loader.js"></script>
   </head>
-  <body></body>
+
+  <body>
+    <!-- ローディング画面 (初回のみ表示) -->
+    <div class="loading-overlay">Loading…</div>
+
+    <!-- 通常コンテンツ -->
+    <h1 style="font-family: 'Inter', sans-serif">Hello World</h1>
+    <img src="/img/a.jpg" width="400" height="300" alt="" />
+    <img src="/img/b.jpg" width="400" height="300" alt="" />
+  </body>
 </html>
