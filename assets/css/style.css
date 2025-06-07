@@ -1012,21 +1012,92 @@ body.menu-open {
 .business-overview {
   background-color: #c11313;
   color: #fff;
+  position: relative;
+  padding-top: 26.5277777778vw;
+}
+@media (min-width: 768px) {
+  .business-overview {
+    padding-top: 16.7578125vw;
+  }
+}
+@media (min-width: 1024px) {
+  .business-overview {
+    padding-top: 15.234375vw;
+  }
 }
 .business-overview .business-overview__container .business-overview__header .business-overview__title {
   color: #fff;
   font-size: 22.9166666667vw;
   font-weight: 700;
-  line-height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: absolute;
+  top: -4.5vw;
 }
 @media (min-width: 768px) {
   .business-overview .business-overview__container .business-overview__header .business-overview__title {
     font-size: 10.95703125vw;
+    top: -2.2vw;
   }
 }
 @media (min-width: 1024px) {
   .business-overview .business-overview__container .business-overview__header .business-overview__title {
     font-size: 9.9609375vw;
+    top: -2vw;
+  }
+}
+.business-overview .business-overview__container .business-overview__header .business-overview__title .business-overview__title-marquee {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  /* 
+    ======= アニメーション速度調整方法 =======
+    animation-duration を変更してスピードを調整
+    - 数値を小さく → 速くなる
+    - 数値を大きく → 遅くなる
+    推奨範囲: 15s〜40s
+    */
+  -webkit-animation: marquee 20s linear infinite;
+          animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+@media (min-width: 768px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__title .business-overview__title-marquee {
+    -webkit-animation-duration: 25s;
+            animation-duration: 25s;
+  }
+}
+@media (min-width: 1024px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__title .business-overview__title-marquee {
+    -webkit-animation-duration: 30s;
+            animation-duration: 30s;
+  }
+}
+.business-overview .business-overview__container .business-overview__header .business-overview__title .business-overview__title-marquee .business-overview__title-text {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  /* 
+    ======= 文字間隔調整方法 =======
+    margin-right でテキスト間のスペースを調整
+    - 数値を大きく → 間隔が広くなる
+    - 数値を小さく → 間隔が狭くなる
+
+    目安:
+    - 文字サイズの 50-100% 程度が自然
+    - 現在: 文字サイズ165px → 間隔100px (約60%)
+    - タブレット以上: 文字サイズ255px → 間隔150px (約59%)
+    */
+  margin-right: 13.8888888889vw;
+}
+@media (min-width: 768px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__title .business-overview__title-marquee .business-overview__title-text {
+    margin-right: 6.4453125vw;
+  }
+}
+@media (min-width: 1024px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__title .business-overview__title-marquee .business-overview__title-text {
+    margin-right: 5.859375vw;
   }
 }
 .business-overview .business-overview__container .business-overview__header .business-overview__description {
@@ -1034,16 +1105,89 @@ body.menu-open {
   font-weight: 500;
   line-height: 200%;
   letter-spacing: 0.0458333333vw;
+  width: 83.3333333333vw;
+  margin-inline: auto;
 }
 @media (min-width: 768px) {
   .business-overview .business-overview__container .business-overview__header .business-overview__description {
     font-size: 1.50390625vw;
     letter-spacing: 0.0150390625vw;
+    width: 67.1vw;
   }
 }
 @media (min-width: 1024px) {
   .business-overview .business-overview__container .business-overview__header .business-overview__description {
     font-size: 1.3671875vw;
     letter-spacing: 0.013671875vw;
+    width: 61vw;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+/* 
+======= マーキーアニメーション: 計算と調整方法 =======
+
+【基本計算】
+HTMLで同じテキストを4回複製している場合:
+- 全体の幅 = 100% (4つのテキスト + それぞれのmargin-right)
+- 1つのテキスト分 = 100% ÷ 4 = 25%
+- translateX(-25%) = 1つ分だけ左に移動
+- これにより、無限ループの錯覚を作る
+
+【複製数を変更する場合の計算式】
+複製数をN個にした場合: translateX(-(100/N)%)
+- 3個の場合: translateX(-33.333%)
+- 5個の場合: translateX(-20%)
+- 6個の場合: translateX(-16.666%)
+
+【調整のポイント】
+1. 複製数が少ない（2-3個）→ 速い動きだが、継ぎ目が目立ちやすい
+2. 複製数が多い（5-6個）→ 滑らかだが、重い + 継ぎ目が見えにくい
+3. 現在の4個 → バランスが良い（推奨）
+
+【デバッグ方法】
+animation-play-state: paused; を一時的に追加すると
+アニメーションを停止して位置確認できる
+*/
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+}
+@keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-25%);
+            transform: translateX(-25%);
+  }
+}
+/* 
+======= 追加のマーキー調整オプション =======
+
+// より滑らかなイージング（必要に応じて使用）
+@keyframes marquee-smooth {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-25%); }
+}
+
+// 一時停止機能（ホバー時など）
+.business-overview__title-marquee:hover {
+    animation-play-state: paused;
+}
+
+// より速い緊急時用設定
+.business-overview__title-marquee--fast {
+    animation-duration: 10s !important;
+}
+
+// より遅い設定
+.business-overview__title-marquee--slow {
+    animation-duration: 45s !important;
+}
+*//*# sourceMappingURL=style.css.map */

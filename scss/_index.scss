@@ -829,20 +829,83 @@ body.menu-open {
 .business-overview {
     background-color: $base_color_2;
     color: $base_color_white;
+    position: relative;
+    padding-top: spx(191);
+    @include tablet-up {
+        padding-top: ppx(390 * $pc-to-tab-ratio);
+    }
+    @include desktop-up {
+        padding-top: ppx(390);
+    }
     .business-overview__container {
         .business-overview__header {
             .business-overview__title {
                 color: $base_color_white;
                 font-size: spx(165);
                 font-weight: 700;
-                line-height: 100%;
-
+                // マーキー基本設定
+                overflow: hidden; // はみ出た文字を非表示
+                white-space: nowrap; // 改行を禁止
+                width: 100%; // 親要素の幅いっぱい
+                position: absolute;
+                top: -4.5vw;
                 @include tablet-up {
                     font-size: ppx(255 * $pc-to-tab-ratio);
+                    top: -2vw * $pc-to-tab-ratio;
                 }
 
                 @include desktop-up {
                     font-size: ppx(255);
+                    top: -2vw;
+                }
+
+                .business-overview__title-marquee {
+                    display: inline-flex;
+
+                    /* 
+                      ======= アニメーション速度調整方法 =======
+                      animation-duration を変更してスピードを調整
+                      - 数値を小さく → 速くなる
+                      - 数値を大きく → 遅くなる
+                      推奨範囲: 15s〜40s
+                      */
+                    animation: marquee 20s linear infinite;
+                    will-change: transform; // GPU描画でパフォーマンス向上
+
+                    @include tablet-up {
+                        // タブレット: 少し遅めで上品に
+                        animation-duration: 25s;
+                    }
+
+                    @include desktop-up {
+                        // デスクトップ: さらに遅めでラグジュアリーに
+                        animation-duration: 30s;
+                    }
+
+                    .business-overview__title-text {
+                        flex-shrink: 0; // 縮小を防ぐ
+
+                        /* 
+                          ======= 文字間隔調整方法 =======
+                          margin-right でテキスト間のスペースを調整
+                          - 数値を大きく → 間隔が広くなる
+                          - 数値を小さく → 間隔が狭くなる
+                          
+                          目安:
+                          - 文字サイズの 50-100% 程度が自然
+                          - 現在: 文字サイズ165px → 間隔100px (約60%)
+                          - タブレット以上: 文字サイズ255px → 間隔150px (約59%)
+                          */
+                        margin-right: spx(100);
+
+                        @include tablet-up {
+                            margin-right: ppx(150 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            margin-right: ppx(150);
+                        }
+                    }
                 }
             }
 
@@ -851,15 +914,19 @@ body.menu-open {
                 font-weight: 500;
                 line-height: 200%;
                 letter-spacing: spx(0.33);
+                width: spx(600);
+                margin-inline: auto;
 
                 @include tablet-up {
                     font-size: ppx(35 * $pc-to-tab-ratio);
                     letter-spacing: ppx(0.35 * $pc-to-tab-ratio);
+                    width: 61vw * $pc-to-tab-ratio;
                 }
 
                 @include desktop-up {
                     font-size: ppx(35);
                     letter-spacing: ppx(0.35);
+                    width: 61vw;
                 }
             }
         }
@@ -884,3 +951,62 @@ body.menu-open {
         }
     }
 }
+
+/* 
+======= マーキーアニメーション: 計算と調整方法 =======
+
+【基本計算】
+HTMLで同じテキストを4回複製している場合:
+- 全体の幅 = 100% (4つのテキスト + それぞれのmargin-right)
+- 1つのテキスト分 = 100% ÷ 4 = 25%
+- translateX(-25%) = 1つ分だけ左に移動
+- これにより、無限ループの錯覚を作る
+
+【複製数を変更する場合の計算式】
+複製数をN個にした場合: translateX(-(100/N)%)
+- 3個の場合: translateX(-33.333%)
+- 5個の場合: translateX(-20%)
+- 6個の場合: translateX(-16.666%)
+
+【調整のポイント】
+1. 複製数が少ない（2-3個）→ 速い動きだが、継ぎ目が目立ちやすい
+2. 複製数が多い（5-6個）→ 滑らかだが、重い + 継ぎ目が見えにくい
+3. 現在の4個 → バランスが良い（推奨）
+
+【デバッグ方法】
+animation-play-state: paused; を一時的に追加すると
+アニメーションを停止して位置確認できる
+*/
+@keyframes marquee {
+    0% {
+        transform: translateX(0); // 開始位置
+    }
+    100% {
+        transform: translateX(-25%); // 4つのテキストのうち1つ分だけ移動
+    }
+}
+
+/* 
+======= 追加のマーキー調整オプション =======
+
+// より滑らかなイージング（必要に応じて使用）
+@keyframes marquee-smooth {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-25%); }
+}
+
+// 一時停止機能（ホバー時など）
+.business-overview__title-marquee:hover {
+    animation-play-state: paused;
+}
+
+// より速い緊急時用設定
+.business-overview__title-marquee--fast {
+    animation-duration: 10s !important;
+}
+
+// より遅い設定
+.business-overview__title-marquee--slow {
+    animation-duration: 45s !important;
+}
+*/
