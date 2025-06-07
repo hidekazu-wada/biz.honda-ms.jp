@@ -2,6 +2,20 @@
 @use "functions" as *;
 @use "mixins" as *;
 
+// グローバルメニュー表示時のスクロール制御
+body.menu-open {
+    overflow: hidden;
+
+    // iOS Safari でのスクロールバウンス防止
+    position: fixed;
+    width: 100%;
+
+    // タブレット以上では通常のスクロール制御のみ
+    @include tablet-up {
+        position: static;
+    }
+}
+
 .site-header {
     &.tablet-up {
         &.in-top-page-hero {
@@ -214,7 +228,24 @@
                 background: linear-gradient(180deg, #fff 60%, #ededed 100%);
                 box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.3);
                 padding-left: ppx(25 * $pc-to-tab-ratio);
+                width: 100%;
                 height: ppx(140 * $pc-to-tab-ratio);
+                position: fixed;
+                top: 0;
+                left: 0;
+                // 固定ヘッダーの表示制御
+                opacity: 1;
+                transition: opacity 0.3s ease;
+
+                // トップページでの初期状態（非表示）
+                .page-top & {
+                    opacity: 0;
+                }
+
+                // トップページでスクロール時の表示状態
+                .page-top &.is-visible {
+                    opacity: 1;
+                }
             }
             @include desktop-up {
                 padding-left: ppx(25);
@@ -518,6 +549,11 @@
         position: fixed;
         top: 0;
         z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
         @include tablet-up {
             display: none;
         }
@@ -603,6 +639,192 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+.top-page-hero {
+    position: relative;
+    width: 100vw;
+    height: calc(100lvh - spx(130));
+    @include tablet-up {
+        height: 100lvh;
+    }
+    @include desktop-up {
+    }
+    .top-page-hero__content {
+        margin-top: spx(174);
+        @include tablet-up {
+            margin-top: ppx(237 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            margin-top: ppx(237);
+        }
+        .hero-message {
+            .hero-message__title {
+                .hero-message__lead {
+                    display: block;
+                    color: $gray_4;
+                    font-size: spx(70);
+                    font-weight: 700;
+                    line-height: 100%;
+                    letter-spacing: spx(3.5);
+                    margin-left: spx(68);
+
+                    @include tablet-up {
+                        font-size: ppx(85 * $pc-to-tab-ratio);
+                        letter-spacing: ppx(4.25 * $pc-to-tab-ratio);
+                        margin-left: unset;
+                        text-align: center;
+                    }
+
+                    @include desktop-up {
+                        font-size: ppx(85);
+                        letter-spacing: ppx(4.25);
+                    }
+                }
+
+                .hero-message__main {
+                    display: block;
+                    color: $base_color_2;
+                    font-size: spx(87);
+                    font-weight: 700;
+                    line-height: 130%;
+                    letter-spacing: spx(4.35);
+                    margin-left: spx(68);
+                    margin-top: spx(24);
+
+                    @include tablet-up {
+                        font-size: ppx(115 * $pc-to-tab-ratio);
+                        line-height: 100%;
+                        letter-spacing: ppx(5.75 * $pc-to-tab-ratio);
+                        margin-left: unset;
+                        text-align: center;
+                        margin-top: ppx(62 * $pc-to-tab-ratio);
+                    }
+
+                    @include desktop-up {
+                        font-size: ppx(115);
+                        line-height: 100%;
+                        letter-spacing: ppx(5.75);
+                        margin-top: ppx(62);
+                    }
+                    .sp-only {
+                        display: block;
+                        @include tablet-up {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .hero-message__english {
+                color: $base_color_2;
+                font-size: spx(40);
+                font-weight: 700;
+                line-height: 160%;
+                margin-left: spx(76);
+                margin-top: spx(14);
+
+                @include tablet-up {
+                    font-size: ppx(52 * $pc-to-tab-ratio);
+                    margin-left: unset;
+                    text-align: center;
+                    margin-top: ppx(78 * $pc-to-tab-ratio);
+                }
+
+                @include desktop-up {
+                    font-size: ppx(52);
+                    margin-top: ppx(78);
+                }
+            }
+        }
+
+        .scroll-indicator {
+            display: none;
+            @include tablet-up {
+                display: block;
+                width: max-content;
+                height: max-content;
+                margin-inline: auto;
+                margin-top: ppx(54 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                margin-top: ppx(54);
+            }
+            .scroll-arrow {
+                @include tablet-up {
+                    width: auto;
+                    height: ppx(112 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    height: ppx(112);
+                }
+
+                path {
+                }
+            }
+        }
+    }
+
+    .hero-images {
+        .hero-images__item {
+            &.hero-images__item--couple {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+                width: spx(406);
+                height: auto;
+                @include tablet-up {
+                    width: ppx(1147 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    width: ppx(1147);
+                }
+                .hero-image {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &.hero-images__item--family {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 2;
+                width: spx(183);
+                height: auto;
+                @include tablet-up {
+                    width: ppx(393 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    width: ppx(393);
+                }
+                .hero-image {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &.hero-images__item--car {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 1;
+                width: spx(512);
+                height: auto;
+                @include tablet-up {
+                    width: ppx(1098 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    width: ppx(1098);
+                }
+                .hero-image {
+                    width: 100%;
+                    height: auto;
                 }
             }
         }
