@@ -1250,6 +1250,258 @@ body.menu-open {
 }
 
 .business-section {
+    padding-top: spx(120);
+    padding-bottom: spx(140);
+    @include tablet-up {
+        padding-top: ppx(220 * $pc-to-tab-ratio);
+        padding-bottom: ppx(220 * $pc-to-tab-ratio);
+    }
+    @include desktop-up {
+        padding-top: ppx(220);
+        padding-bottom: ppx(220);
+    }
+    .business-section__inner {
+        display: flex;
+        flex-direction: column;
+        gap: spx(41);
+        @include tablet-up {
+            flex-direction: row;
+            gap: ppx(174 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            gap: ppx(174);
+        }
+        .business-section__header-wrapper {
+            width: max-content;
+            margin-inline: auto;
+            @include tablet-up {
+                margin-inline: unset;
+                margin-left: 6vw;
+                margin-top: ppx(40 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                margin-left: ppx(261);
+                margin-top: ppx(40);
+            }
+            .business-section__header {
+                // 既存スタイリング済み - 手を加えない
+            }
+            .line {
+                display: block;
+                width: 1px;
+                height: spx(120);
+                background-color: $base_color_2;
+                margin-inline: auto;
+                margin-top: spx(30);
+                @include tablet-up {
+                    height: ppx(350 * $pc-to-tab-ratio);
+                    margin-top: ppx(51 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    height: ppx(350);
+                    margin-top: ppx(51);
+                }
+            }
+        }
+
+        .business-list {
+            display: grid;
+            grid-template-columns: max-content;
+            gap: spx(10);
+            width: max-content;
+            margin-inline: auto;
+            @include tablet-up {
+                grid-template-columns: max-content max-content;
+                gap: ppx(15 * $pc-to-tab-ratio);
+                margin-inline: unset;
+            }
+            @include desktop-up {
+                gap: ppx(15);
+            }
+            .business-item {
+                width: spx(640);
+                height: spx(228);
+                background-color: $base_color_2;
+                color: $base_color_white;
+                border-radius: spx(28);
+                position: relative;
+                transition: background-color 0.3s ease;
+                @include tablet-up {
+                    width: ppx(675 * $pc-to-tab-ratio);
+                    height: ppx(240 * $pc-to-tab-ratio);
+                    border-radius: ppx(30 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    width: ppx(675);
+                    height: ppx(240);
+                    border-radius: ppx(30);
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: spx(26);
+                    padding-left: spx(47);
+                    width: 100%;
+                    height: 100%;
+                    @include tablet-up {
+                        gap: ppx(28 * $pc-to-tab-ratio);
+                        padding-left: ppx(50 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        gap: ppx(28);
+                        padding-left: ppx(50);
+                    }
+                    .business-icon {
+                        width: spx(134);
+                        height: spx(134);
+                        @include tablet-up {
+                            width: ppx(140 * $pc-to-tab-ratio);
+                            height: ppx(140 * $pc-to-tab-ratio);
+                        }
+                        @include desktop-up {
+                            width: ppx(140);
+                            height: ppx(140);
+                        }
+                        svg {
+                            width: 100%;
+                            height: auto;
+                            path {
+                                transition: fill 0.3s ease;
+                            }
+                        }
+                    }
+
+                    .business-name {
+                        font-size: spx(33);
+                        font-weight: 700;
+                        line-height: normal;
+                        letter-spacing: spx(1.65);
+
+                        @include tablet-up {
+                            font-size: ppx(30 * $pc-to-tab-ratio);
+                            letter-spacing: ppx(1.5 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(30);
+                            letter-spacing: ppx(1.5);
+                        }
+                    }
+
+                    .business-arrow {
+                        width: spx(29);
+                        height: auto;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: spx(37);
+                        @include tablet-up {
+                            width: ppx(31 * $pc-to-tab-ratio);
+                            right: ppx(40 * $pc-to-tab-ratio);
+                        }
+                        @include desktop-up {
+                            width: ppx(31);
+                            right: ppx(40);
+                        }
+                        svg {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    &:focus-visible {
+                        .business-icon {
+                            svg {
+                            }
+                        }
+
+                        .business-name {
+                        }
+
+                        .business-arrow {
+                            svg {
+                            }
+                        }
+                    }
+                }
+                // ホバー・フォーカス状態
+                @include hover {
+                    &:hover {
+                        background-color: $base_color_3;
+                        .business-icon {
+                            svg {
+                                path {
+                                    fill: $base_color_3;
+                                }
+                            }
+                        }
+
+                        .business-name {
+                        }
+
+                        .business-arrow {
+                            svg {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page-bottom-bar {
+    .page-bottom-bar__inner {
+        .page-bottom-bar__brand {
+            .page-bottom-bar__brand-link {
+                .page-bottom-bar__brand-text {
+                }
+
+                .page-bottom-bar__brand-icon {
+                    path {
+                    }
+                }
+
+                @include hover {
+                    &:hover {
+                        .page-bottom-bar__brand-icon {
+                            path {
+                            }
+                        }
+                    }
+                }
+
+                &:focus-visible {
+                }
+            }
+        }
+
+        .page-bottom-bar__actions {
+            &.only-tablet-up {
+                .page-bottom-bar__top-link {
+                    .page-bottom-bar__top-icon {
+                        path {
+                        }
+                    }
+
+                    .page-bottom-bar__top-text {
+                    }
+
+                    @include hover {
+                        &:hover {
+                            .page-bottom-bar__top-icon {
+                                path {
+                                }
+                            }
+                        }
+                    }
+
+                    &:focus-visible {
+                    }
+                }
+            }
+        }
+    }
 }
 
 // ================================================
