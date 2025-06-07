@@ -1,0 +1,21 @@
+/* デフォルトは非表示 */
+.loading-overlay {
+  display: none;
+}
+
+/* ─ 初回訪問 × 読込中だけ表示 ─ */
+html.first-visit.is-loading .loading-overlay {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 9999;
+  transition: opacity 0.4s;
+}
+
+/* 読込完了でフェードアウト */
+html.is-loaded .loading-overlay {
+  opacity: 0;
+  pointer-events: none;
+}

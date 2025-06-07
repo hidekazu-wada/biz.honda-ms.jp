@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en,ja",
+  "ignorePaths": [
+    "**/*.map",
+    "assets/css/style.css.map",
+    "assets/js/lib/**",
+    "node_modules/**",
+    ".git/**",
+    "dist/**",
+    "build/**"
+  ],
+  "ignoreRegExpList": ["Base64"],
+  "words": [
+    "gsap",
+    "webp",
+    "ppx",
+    "spx",
+    "lvh",
+    "vw",
+    "vh",
+    "rgba",
+    "translateY",
+    "prettierignore",
+    "cspell"
+  ]
+}

@@ -1,0 +1,13 @@
+# Prettier ignore file
+# SCSSコンパイラが生成するソースマップファイル
+assets/css/style.css.map
+
+# その他の自動生成ファイル
+*.map
+
+# ライブラリファイル
+assets/js/lib/
+
+# ビルド・出力ファイル
+dist/
+build/ 

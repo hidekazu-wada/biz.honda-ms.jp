@@ -1,0 +1,37 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+html {
+    scroll-behavior: smooth;
+    font-family: $font-noto-sans-jp;
+    line-height: 1;
+
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+svg {
+    overflow: visible !important;
+}
+
+.bg-wrapper {
+    width: 100vw;
+    height: 100lvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: url(/images/global/bg-720.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include tablet-up {
+        background-image: url(/images/global/bg-1280.webp);
+    }
+    @include desktop-up {
+        background-image: url(/images/global/bg-2560.webp);
+    }
+}
