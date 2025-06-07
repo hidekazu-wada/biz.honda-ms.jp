@@ -1,0 +1,610 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+.site-header {
+    &.tablet-up {
+        &.in-top-page-hero {
+            display: flex;
+            justify-content: space-between;
+            padding-left: spx(32);
+            @include tablet-up {
+                padding-left: ppx(81 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                padding-left: ppx(81);
+            }
+            .header__logo {
+                width: spx(199);
+                height: auto;
+                margin-top: spx(10);
+                @include tablet-up {
+                    width: ppx(278 * $pc-to-tab-ratio);
+                    margin-top: ppx(46 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    width: ppx(278);
+                    margin-top: ppx(46);
+                }
+                .logo-link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    .company-name {
+                        color: #000;
+                        font-size: spx(16.486);
+                        font-weight: 600;
+                        line-height: 110%;
+
+                        @include tablet-up {
+                            font-size: ppx(23 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(23);
+                        }
+                    }
+                }
+            }
+
+            .header__content {
+                display: none;
+                @include tablet-up {
+                    display: flex;
+                    align-items: center;
+                    gap: ppx(90 * $pc-to-tab-ratio);
+                    height: ppx(140 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    gap: ppx(90);
+                    height: ppx(140);
+                }
+                .main-nav {
+                    .nav-list {
+                        @include tablet-up {
+                            display: flex;
+                            align-items: center;
+                            gap: ppx(80 * $pc-to-tab-ratio);
+                        }
+                        @include desktop-up {
+                            gap: ppx(80);
+                        }
+                        .nav-item {
+                            .nav-link {
+                                @include tablet-up {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: ppx(17 * $pc-to-tab-ratio);
+                                }
+                                @include desktop-up {
+                                    gap: ppx(17);
+                                }
+                                span {
+                                    @include tablet-up {
+                                        color: $base_color_1;
+                                        font-weight: 500;
+                                        line-height: 100%;
+                                        font-size: ppx(30 * $pc-to-tab-ratio);
+                                        letter-spacing: ppx(4.5 * $pc-to-tab-ratio);
+                                        transition: color 0.3s ease;
+                                    }
+
+                                    @include desktop-up {
+                                        font-size: ppx(30);
+                                        letter-spacing: ppx(4.5);
+                                    }
+                                }
+
+                                .nav-icon {
+                                    @include tablet-up {
+                                        width: ppx(23 * $pc-to-tab-ratio);
+                                    }
+                                    @include desktop-up {
+                                        width: ppx(23);
+                                    }
+                                    path {
+                                    }
+                                }
+                                @include hover {
+                                    &:hover {
+                                        span {
+                                            color: $base_color_2;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .recruit-section {
+                    @include tablet-up {
+                        position: relative;
+                        background-color: $base_color_2;
+                        color: $base_color_white;
+                        width: ppx(430 * $pc-to-tab-ratio);
+                        height: 100%;
+                        transition: background-color 0.3s ease;
+                    }
+                    @include desktop-up {
+                        width: ppx(430);
+                    }
+
+                    .recruit-link {
+                        @include tablet-up {
+                            height: 100%;
+                            display: block;
+                        }
+
+                        .recruit-content {
+                            @include tablet-up {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: ppx(10 * $pc-to-tab-ratio);
+                                height: 100%;
+                            }
+                            @include desktop-up {
+                                gap: ppx(10);
+                            }
+                            .recruit-title {
+                                @include tablet-up {
+                                    font-family: $font-noto-serif-jp;
+                                    font-weight: 700;
+                                    font-size: ppx(50 * $pc-to-tab-ratio);
+                                    letter-spacing: ppx(3 * $pc-to-tab-ratio);
+                                }
+
+                                @include desktop-up {
+                                    font-size: ppx(50);
+                                    letter-spacing: ppx(3);
+                                }
+                            }
+
+                            .recruit-subtitle {
+                                @include tablet-up {
+                                    font-weight: 500;
+                                    font-size: ppx(23 * $pc-to-tab-ratio);
+                                    letter-spacing: ppx(4.14 * $pc-to-tab-ratio);
+                                }
+
+                                @include desktop-up {
+                                    font-size: ppx(23);
+                                    letter-spacing: ppx(4.14);
+                                }
+                            }
+                        }
+
+                        .recruit-icon {
+                            @include tablet-up {
+                                position: absolute;
+                                top: 50%;
+                                right: ppx(27 * $pc-to-tab-ratio);
+                                transform: translateY(-50%);
+                                width: ppx(31 * $pc-to-tab-ratio);
+                            }
+                            @include desktop-up {
+                                width: ppx(31);
+                                right: ppx(27);
+                            }
+                            path {
+                            }
+                        }
+                    }
+                    @include hover {
+                        &:hover {
+                            background-color: $base_color_3;
+                        }
+                    }
+                }
+            }
+        }
+        &.site-header--fixed {
+            display: none;
+            @include tablet-up {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: linear-gradient(180deg, #fff 60%, #ededed 100%);
+                box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.3);
+                padding-left: ppx(25 * $pc-to-tab-ratio);
+                height: ppx(140 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                padding-left: ppx(25);
+                height: ppx(140);
+            }
+
+            .header__logo {
+                .logo-link {
+                    @include tablet-up {
+                        display: flex;
+                        align-items: center;
+                        gap: ppx(13 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        gap: ppx(13);
+                    }
+
+                    img {
+                        @include tablet-up {
+                            width: ppx(156 * $pc-to-tab-ratio);
+                            height: auto;
+                        }
+                        @include desktop-up {
+                            width: ppx(156);
+                        }
+                    }
+
+                    .company-name {
+                        @include tablet-up {
+                            color: $base_color_1;
+                            font-weight: 600;
+                            line-height: 110%;
+                            font-size: ppx(28 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(28);
+                        }
+                    }
+                }
+            }
+
+            .header__content {
+                display: none;
+                @include tablet-up {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    gap: ppx(90 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    gap: ppx(90);
+                }
+                .main-nav {
+                    .nav-list {
+                        @include tablet-up {
+                            display: flex;
+                            align-items: center;
+                            gap: ppx(80 * $pc-to-tab-ratio);
+                        }
+                        @include desktop-up {
+                            gap: ppx(80);
+                        }
+                        .nav-item {
+                            .nav-link {
+                                @include tablet-up {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: ppx(17 * $pc-to-tab-ratio);
+                                }
+                                @include desktop-up {
+                                    gap: ppx(17);
+                                }
+                                span {
+                                    @include tablet-up {
+                                        color: $base_color_1;
+                                        font-weight: 500;
+                                        line-height: 100%;
+                                        font-size: ppx(30 * $pc-to-tab-ratio);
+                                        letter-spacing: ppx(4.5 * $pc-to-tab-ratio);
+                                        transition: color 0.3s ease;
+                                    }
+
+                                    @include desktop-up {
+                                        font-size: ppx(30);
+                                        letter-spacing: ppx(4.5);
+                                    }
+                                }
+
+                                .nav-icon {
+                                    @include tablet-up {
+                                        width: ppx(23 * $pc-to-tab-ratio);
+                                    }
+                                    @include desktop-up {
+                                        width: ppx(23);
+                                    }
+                                    path {
+                                    }
+                                }
+                                @include hover {
+                                    &:hover {
+                                        span {
+                                            color: $base_color_2;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .recruit-section {
+                    @include tablet-up {
+                        position: relative;
+                        background-color: $base_color_2;
+                        color: $base_color_white;
+                        width: ppx(430 * $pc-to-tab-ratio);
+                        height: 100%;
+                        transition: background-color 0.3s ease;
+                    }
+                    @include desktop-up {
+                        width: ppx(430);
+                    }
+
+                    .recruit-link {
+                        @include tablet-up {
+                            height: 100%;
+                            display: block;
+                        }
+
+                        .recruit-content {
+                            @include tablet-up {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: ppx(10 * $pc-to-tab-ratio);
+                                height: 100%;
+                            }
+                            @include desktop-up {
+                                gap: ppx(10);
+                            }
+                            .recruit-title {
+                                @include tablet-up {
+                                    font-family: $font-noto-serif-jp;
+                                    font-weight: 700;
+                                    font-size: ppx(50 * $pc-to-tab-ratio);
+                                    letter-spacing: ppx(3 * $pc-to-tab-ratio);
+                                }
+
+                                @include desktop-up {
+                                    font-size: ppx(50);
+                                    letter-spacing: ppx(3);
+                                }
+                            }
+
+                            .recruit-subtitle {
+                                @include tablet-up {
+                                    font-weight: 500;
+                                    font-size: ppx(23 * $pc-to-tab-ratio);
+                                    letter-spacing: ppx(4.14 * $pc-to-tab-ratio);
+                                }
+
+                                @include desktop-up {
+                                    font-size: ppx(23);
+                                    letter-spacing: ppx(4.14);
+                                }
+                            }
+                        }
+
+                        .recruit-icon {
+                            @include tablet-up {
+                                position: absolute;
+                                top: 50%;
+                                right: ppx(27 * $pc-to-tab-ratio);
+                                transform: translateY(-50%);
+                                width: ppx(31 * $pc-to-tab-ratio);
+                            }
+                            @include desktop-up {
+                                width: ppx(31);
+                                right: ppx(27);
+                            }
+                            path {
+                            }
+                        }
+                    }
+                    @include hover {
+                        &:hover {
+                            background-color: $base_color_3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.only-sp {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: spx(130);
+        background-color: $base_color_2;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        padding-left: spx(43);
+        padding-right: spx(35);
+
+        @include tablet-up {
+            display: none;
+        }
+
+        .sp-top-section {
+            .sp-top-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: spx(13);
+                background-color: $base_color_white;
+                border-radius: 50%;
+                width: spx(100);
+                height: spx(100);
+                padding-top: spx(12);
+
+                .sp-top-icon {
+                    width: spx(16);
+                    height: auto;
+                    path {
+                    }
+                }
+
+                .sp-top-text {
+                    color: $base_color_2;
+                    font-size: spx(30);
+                    font-weight: 700;
+                    line-height: 100%;
+                }
+            }
+        }
+
+        .sp-recruit-section {
+            margin-left: spx(100);
+            padding-bottom: 1vw;
+            .sp-recruit-link {
+                color: $base_color_white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: spx(3);
+                .sp-recruit-title {
+                    font-family: $font-noto-serif-jp;
+                    font-size: spx(50);
+                    font-weight: 700;
+                    line-height: normal;
+                    letter-spacing: spx(3);
+                }
+
+                .sp-recruit-subtitle {
+                    font-size: spx(23);
+                    font-weight: 500;
+                    letter-spacing: spx(4.14);
+                }
+            }
+        }
+
+        .sp-menu-section {
+            margin-left: auto;
+            margin-right: 0;
+            .sp-menu-button {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: spx(15);
+                .sp-menu-icon {
+                    width: spx(75);
+                    height: auto;
+                    path {
+                    }
+                }
+
+                .sp-menu-text {
+                    color: $base_color_white;
+                    font-size: spx(28);
+                    font-weight: 700;
+                    line-height: 100%;
+                    letter-spacing: spx(-0.84);
+                }
+            }
+        }
+    }
+}
+
+.global-menu {
+    &.only-sp {
+        background-image: url(/images/global/bg-720.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100lvh;
+        position: fixed;
+        top: 0;
+        z-index: 2000;
+        @include tablet-up {
+            display: none;
+        }
+
+        .global-menu__container {
+            width: 100%;
+            .global-menu__header {
+                .global-menu__logo {
+                    margin-top: spx(10);
+                    position: absolute;
+                    top: spx(10);
+                    left: spx(32);
+                    .logo-link {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        img {
+                            width: spx(156);
+                            height: auto;
+                        }
+
+                        .company-name {
+                            color: #000;
+                            font-size: spx(16.486);
+                            font-weight: 600;
+                            line-height: 110%;
+                        }
+                    }
+                }
+
+                .global-menu__close {
+                    position: absolute;
+                    top: spx(46);
+                    right: spx(39);
+                    .close-button {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: spx(16);
+                        .close-icon {
+                            width: spx(65);
+                            height: auto;
+                            path {
+                            }
+                        }
+
+                        .close-text {
+                            color: $base_color_2;
+                            font-size: spx(28);
+                            font-weight: 700;
+                            line-height: 100%;
+                            letter-spacing: spx(-0.84);
+                        }
+                    }
+                }
+            }
+
+            .global-menu__nav-list {
+                display: flex;
+                flex-direction: column;
+                gap: spx(80);
+                width: max-content;
+                margin-inline: auto;
+                justify-content: center;
+                height: 100lvh;
+                .nav-item {
+                    .nav-link {
+                        display: flex;
+                        align-items: center;
+                        gap: spx(20);
+                        .nav-text {
+                            color: $base_color_1;
+                            font-size: spx(36);
+                            font-weight: 500;
+                            line-height: 100%;
+                            letter-spacing: spx(5.4);
+                        }
+
+                        .nav-icon {
+                            width: spx(27);
+                            height: auto;
+                            path {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

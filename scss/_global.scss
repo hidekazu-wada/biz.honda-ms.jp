@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+html {
+    scroll-behavior: smooth;
+    font-family: $font-noto-sans-jp;
+    line-height: 1;
+
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+svg {
+    overflow: visible !important;
+}
+
+.bg-wrapper {
+    width: 100vw;
+    height: 100lvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
