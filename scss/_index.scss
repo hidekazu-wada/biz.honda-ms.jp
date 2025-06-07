@@ -222,7 +222,7 @@ body.menu-open {
                 justify-content: space-between;
                 align-items: center;
                 background: linear-gradient(180deg, #fff 60%, #ededed 100%);
-                box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3);
                 padding-left: ppx(25 * $pc-to-tab-ratio);
                 width: 100%;
                 height: ppx(140 * $pc-to-tab-ratio);
@@ -232,6 +232,7 @@ body.menu-open {
                 // 固定ヘッダーの表示制御
                 opacity: 1;
                 transition: opacity 0.3s ease;
+                z-index: 1000;
 
                 // トップページでの初期状態（非表示）
                 .page-top & {
@@ -833,9 +834,11 @@ body.menu-open {
     padding-top: spx(191);
     @include tablet-up {
         padding-top: ppx(390 * $pc-to-tab-ratio);
+        padding-bottom: ppx(140 * $pc-to-tab-ratio);
     }
     @include desktop-up {
         padding-top: ppx(390);
+        padding-bottom: ppx(140);
     }
     .business-overview__container {
         .business-overview__header {
@@ -932,19 +935,534 @@ body.menu-open {
         }
 
         .business-overview__images {
+            display: grid;
+            grid-template:
+                "img2 img1"
+                "img3 img1";
+            gap: spx(10);
+            width: 100%;
+            margin-inline: auto;
+            margin-top: spx(72);
+            @include tablet-up {
+                grid-template: "img2 img1 img3";
+                gap: ppx(47 * $pc-to-tab-ratio);
+                width: max-content;
+                margin-top: ppx(169 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                grid-template: "img2 img1 img3";
+                gap: ppx(47);
+                margin-top: ppx(169);
+            }
             .business-overview__image-item {
                 &.business-overview__image-item--store {
+                    grid-area: img2;
+                    width: spx(176);
+                    height: auto;
+                    @include tablet-up {
+                        width: ppx(425 * $pc-to-tab-ratio);
+                        justify-self: flex-start;
+                    }
+                    @include desktop-up {
+                        width: ppx(425);
+                        justify-self: unset;
+                    }
                     .business-overview__image {
+                        width: 100%;
+                        height: auto;
                     }
                 }
 
                 &.business-overview__image-item--staff {
+                    grid-area: img1;
+                    width: spx(534);
+                    height: auto;
+                    justify-self: flex-end;
+                    @include tablet-up {
+                        width: ppx(1173 * $pc-to-tab-ratio);
+                        justify-self: unset;
+                        margin-bottom: ppx(11 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        width: ppx(1173);
+                        margin-bottom: ppx(11);
+                    }
                     .business-overview__image {
+                        width: 100%;
+                        height: auto;
                     }
                 }
 
                 &.business-overview__image-item--showroom {
+                    grid-area: img3;
+                    width: spx(176);
+                    height: auto;
+                    justify-self: flex-start;
+                    @include tablet-up {
+                        width: ppx(425 * $pc-to-tab-ratio);
+                        align-self: flex-end;
+                        justify-self: unset;
+                    }
+                    @include desktop-up {
+                        width: ppx(425);
+                    }
                     .business-overview__image {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.recruit-section-in-top {
+    background-color: #edf2f8;
+    padding: spx(120) 0 spx(140);
+    position: relative;
+
+    @include tablet-up {
+        padding: ppx(260 * $pc-to-tab-ratio) 0 ppx(223 * $pc-to-tab-ratio);
+    }
+
+    @include desktop-up {
+        padding: ppx(260) 0 ppx(223);
+    }
+
+    .recruit__header {
+        margin-left: spx(56);
+
+        @include tablet-up {
+            margin-left: ppx(220 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            margin-left: ppx(220);
+        }
+    }
+
+    .recruit__text {
+        margin-top: spx(52);
+
+        @include tablet-up {
+            margin-top: ppx(90 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            margin-top: ppx(90);
+        }
+    }
+
+    .recruit__catch {
+        font-family: $font-noto-serif-jp;
+        color: $base_color_1;
+        font-size: spx(58);
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: spx(2.9);
+        margin-left: spx(57);
+
+        @include tablet-up {
+            font-size: ppx(75 * $pc-to-tab-ratio);
+            letter-spacing: ppx(3.75 * $pc-to-tab-ratio);
+            margin-left: ppx(220 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            font-size: ppx(75);
+            letter-spacing: ppx(3.75);
+            margin-left: ppx(220);
+        }
+    }
+
+    .recruit__desc {
+        color: $base_color_1;
+        font-size: spx(33);
+        font-weight: 500;
+        line-height: 200%;
+        letter-spacing: spx(0.33);
+        margin-top: spx(65);
+        width: spx(600);
+        margin-inline: auto;
+
+        @include tablet-up {
+            font-size: ppx(35 * $pc-to-tab-ratio);
+            letter-spacing: ppx(0.35 * $pc-to-tab-ratio);
+            margin-top: ppx(468 * $pc-to-tab-ratio);
+            width: ppx(771 * $pc-to-tab-ratio);
+            margin-inline: unset;
+            margin-left: ppx(1449 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            font-size: ppx(35);
+            letter-spacing: ppx(0.35);
+            margin-top: ppx(468);
+            width: ppx(771);
+            margin-left: ppx(1449);
+        }
+    }
+
+    .recruit__gallery {
+        position: relative;
+        width: 100vw;
+        overflow-x: hidden;
+        height: spx(843);
+
+        @include tablet-up {
+            position: unset;
+            height: auto;
+        }
+    }
+
+    .recruit__gallery-item {
+        position: absolute;
+        display: block;
+
+        // section-visual01（エンジニア）
+        &.section-visual01 {
+            width: spx(320);
+            top: spx(98);
+            left: 0;
+            opacity: 0.9;
+            z-index: 2;
+
+            @include tablet-up {
+                width: ppx(760 * $pc-to-tab-ratio);
+                top: ppx(922 * $pc-to-tab-ratio);
+            }
+
+            @include desktop-up {
+                width: ppx(760);
+                top: ppx(922);
+            }
+        }
+
+        // section-visual02（電話対応）
+        &.section-visual02 {
+            width: spx(209);
+            top: spx(98);
+            left: spx(327);
+            opacity: 0.9;
+            z-index: 2;
+
+            @include tablet-up {
+                width: ppx(453 * $pc-to-tab-ratio);
+                top: ppx(266 * $pc-to-tab-ratio);
+                left: unset;
+                right: 0;
+            }
+
+            @include desktop-up {
+                width: ppx(453);
+                top: ppx(266);
+            }
+        }
+
+        // section-visual03（受付女性）
+        &.section-visual03 {
+            width: spx(559);
+            top: spx(375);
+            right: 0;
+            opacity: 0.9;
+            z-index: 2;
+
+            @include tablet-up {
+                width: ppx(906 * $pc-to-tab-ratio);
+                top: ppx(480 * $pc-to-tab-ratio);
+                right: unset;
+                left: ppx(1126 * $pc-to-tab-ratio);
+            }
+
+            @include desktop-up {
+                width: ppx(906);
+                top: ppx(480);
+                left: ppx(1126);
+            }
+        }
+
+        // section-visual04（電話対応・ブラー）
+        &.section-visual04 {
+            width: spx(244);
+            top: 8vw;
+            right: spx(-110);
+            opacity: 0.8;
+            filter: blur(14px);
+            z-index: 1;
+
+            @include tablet-up {
+                width: ppx(463 * $pc-to-tab-ratio);
+                top: ppx(969 * $pc-to-tab-ratio);
+                right: unset;
+                left: ppx(867 * $pc-to-tab-ratio);
+            }
+
+            @include desktop-up {
+                width: ppx(463);
+                top: ppx(969);
+                left: ppx(867);
+            }
+        }
+
+        // section-visual05（商談・ブラー）
+        &.section-visual05 {
+            width: spx(172);
+            top: spx(415);
+            left: spx(-84);
+            opacity: 0.8;
+            filter: blur(15px);
+            z-index: 1;
+
+            @include tablet-up {
+                width: ppx(290 * $pc-to-tab-ratio);
+                top: ppx(835 * $pc-to-tab-ratio);
+                left: unset;
+                right: 0;
+            }
+
+            @include desktop-up {
+                width: ppx(290);
+                top: ppx(835);
+            }
+        }
+    }
+
+    .recruit__gallery-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .recruit__link-wrapper {
+        width: max-content;
+        margin-inline: auto;
+
+        @include tablet-up {
+            margin-inline: unset;
+            margin-top: ppx(48 * $pc-to-tab-ratio);
+            margin-left: ppx(1449 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            margin-top: ppx(48);
+            margin-left: ppx(1449);
+        }
+    }
+}
+
+.business-section {
+}
+
+// ================================================
+// SECTION TITLE COMPONENT
+// セクションタイトル共通コンポーネント
+// 使用箇所: トップページ（Mission, Recruit）、ニュースページ
+// バリエーション: --red, --white
+// ================================================
+.section-title {
+    display: flex;
+    flex-direction: column;
+    gap: spx(18);
+    width: max-content;
+    align-items: center;
+
+    @include tablet-up {
+        gap: ppx(18 * $pc-to-tab-ratio);
+    }
+
+    @include desktop-up {
+        gap: ppx(18);
+    }
+
+    &-main {
+        font-family: $font-noto-serif-jp;
+        color: $base_color_2;
+        font-size: spx(105);
+        font-weight: 700;
+        line-height: 100%;
+
+        @include tablet-up {
+            font-size: ppx(105 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            font-size: ppx(105);
+        }
+    }
+
+    &-sub {
+        color: $base_color_1;
+        font-size: spx(35);
+        font-weight: 500;
+        line-height: 150%;
+        letter-spacing: spx(1.75);
+
+        @include tablet-up {
+            font-size: ppx(35 * $pc-to-tab-ratio);
+            letter-spacing: ppx(1.75 * $pc-to-tab-ratio);
+        }
+
+        @include desktop-up {
+            font-size: ppx(35);
+            letter-spacing: ppx(1.75);
+        }
+    }
+
+    &--red {
+        .section-title-main {
+            color: $base_color_2;
+        }
+
+        .section-title-sub {
+            color: $base_color_2;
+
+            &::before {
+                background-color: $base_color_2;
+            }
+        }
+    }
+
+    &--white {
+        .section-title-main {
+            color: $base_color_white;
+        }
+
+        .section-title-sub {
+            color: $base_color_white;
+
+            &::before {
+                background-color: $base_color_white;
+            }
+        }
+    }
+}
+
+// ================================================
+// PRIMARY BUTTON COMPONENT
+// プライマリボタン共通コンポーネント
+// 使用箇所: トップページ（Mission, Recruit）、ニュースページ
+// バリエーション: --white, --dark
+// ================================================
+.primary-button {
+    font-size: spx(35);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: spx(1.75);
+    display: flex;
+    align-items: center;
+    gap: spx(40);
+    width: max-content;
+    height: spx(120);
+    padding-left: spx(80);
+    padding-right: spx(40);
+    border: 1px solid $base_color_white;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+    text-decoration: none;
+
+    @include tablet-up {
+        font-size: ppx(35 * $pc-to-tab-ratio);
+        letter-spacing: ppx(1.75 * $pc-to-tab-ratio);
+        height: ppx(120 * $pc-to-tab-ratio);
+        gap: ppx(40 * $pc-to-tab-ratio);
+        padding-left: ppx(80 * $pc-to-tab-ratio);
+        padding-right: ppx(40 * $pc-to-tab-ratio);
+    }
+
+    @include desktop-up {
+        font-size: ppx(35);
+        letter-spacing: ppx(1.75);
+        height: ppx(120);
+        gap: ppx(40);
+        padding-left: ppx(80);
+        padding-right: ppx(40);
+    }
+
+    &__icon {
+        svg {
+            display: block;
+            width: spx(31);
+            height: auto;
+
+            @include tablet-up {
+                width: ppx(31 * $pc-to-tab-ratio);
+            }
+
+            @include desktop-up {
+                width: ppx(31);
+            }
+
+            path {
+                stroke: white;
+                transition: stroke 0.3s ease;
+            }
+        }
+    }
+
+    &--white {
+        color: $base_color_white;
+        border-color: $base_color_white;
+
+        @include hover {
+            &:hover {
+                color: $base_color_white;
+                background-color: $base_color_2;
+                border-color: $base_color_2;
+
+                svg {
+                    path {
+                        stroke: $base_color_white;
+                    }
+                }
+            }
+        }
+    }
+
+    &--dark {
+        color: $base_color_1;
+        border-color: $base_color_1;
+
+        svg {
+            path {
+                stroke: $base_color_1;
+            }
+        }
+
+        @include hover {
+            &:hover {
+                color: $base_color_white;
+                background-color: $base_color_2;
+                border-color: $base_color_2;
+
+                svg {
+                    path {
+                        stroke: $base_color_white;
+                    }
+                }
+            }
+        }
+    }
+
+    &--red {
+        color: $base_color_2;
+        border-color: $base_color_2;
+
+        svg {
+            path {
+                stroke: $base_color_2;
+            }
+        }
+
+        @include hover {
+            &:hover {
+                color: $base_color_white;
+                background-color: $base_color_2;
+                border-color: $base_color_2;
+
+                svg {
+                    path {
+                        stroke: $base_color_white;
                     }
                 }
             }
