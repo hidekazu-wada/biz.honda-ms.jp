@@ -434,6 +434,7 @@ body.menu-open {
         }
     }
     &.only-sp {
+        border-top: 1px solid $base_color_white;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -818,6 +819,66 @@ body.menu-open {
                 .hero-image {
                     width: 100%;
                     height: auto;
+                }
+            }
+        }
+    }
+}
+
+// 事業紹介セクション
+.business-overview {
+    background-color: $base_color_2;
+    color: $base_color_white;
+    .business-overview__container {
+        .business-overview__header {
+            .business-overview__title {
+                color: $base_color_white;
+                font-size: spx(165);
+                font-weight: 700;
+                line-height: 100%;
+
+                @include tablet-up {
+                    font-size: ppx(255 * $pc-to-tab-ratio);
+                }
+
+                @include desktop-up {
+                    font-size: ppx(255);
+                }
+            }
+
+            .business-overview__description {
+                font-size: spx(33);
+                font-weight: 500;
+                line-height: 200%;
+                letter-spacing: spx(0.33);
+
+                @include tablet-up {
+                    font-size: ppx(35 * $pc-to-tab-ratio);
+                    letter-spacing: ppx(0.35 * $pc-to-tab-ratio);
+                }
+
+                @include desktop-up {
+                    font-size: ppx(35);
+                    letter-spacing: ppx(0.35);
+                }
+            }
+        }
+
+        .business-overview__images {
+            .business-overview__image-item {
+                &.business-overview__image-item--store {
+                    .business-overview__image {
+                    }
+                }
+
+                &.business-overview__image-item--staff {
+                    .business-overview__image {
+                    }
+                }
+
+                &.business-overview__image-item--showroom {
+                    .business-overview__image {
+                    }
                 }
             }
         }

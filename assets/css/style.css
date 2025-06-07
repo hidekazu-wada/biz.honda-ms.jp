@@ -566,6 +566,7 @@ body.menu-open {
   }
 }
 .site-header.only-sp {
+  border-top: 1px solid #fff;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1006,4 +1007,43 @@ body.menu-open {
 .top-page-hero .hero-images .hero-images__item.hero-images__item--car .hero-image {
   width: 100%;
   height: auto;
+}
+
+.business-overview {
+  background-color: #c11313;
+  color: #fff;
+}
+.business-overview .business-overview__container .business-overview__header .business-overview__title {
+  color: #fff;
+  font-size: 22.9166666667vw;
+  font-weight: 700;
+  line-height: 100%;
+}
+@media (min-width: 768px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__title {
+    font-size: 10.95703125vw;
+  }
+}
+@media (min-width: 1024px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__title {
+    font-size: 9.9609375vw;
+  }
+}
+.business-overview .business-overview__container .business-overview__header .business-overview__description {
+  font-size: 4.5833333333vw;
+  font-weight: 500;
+  line-height: 200%;
+  letter-spacing: 0.0458333333vw;
+}
+@media (min-width: 768px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__description {
+    font-size: 1.50390625vw;
+    letter-spacing: 0.0150390625vw;
+  }
+}
+@media (min-width: 1024px) {
+  .business-overview .business-overview__container .business-overview__header .business-overview__description {
+    font-size: 1.3671875vw;
+    letter-spacing: 0.013671875vw;
+  }
 }/*# sourceMappingURL=style.css.map */
