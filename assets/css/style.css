@@ -792,6 +792,7 @@ body.menu-open {
   width: 3.75vw;
   height: auto;
 }
+
 .top-page-hero {
   position: relative;
   width: 100vw;
@@ -823,6 +824,9 @@ body.menu-open {
   line-height: 100%;
   letter-spacing: 0.4861111111vw;
   margin-left: 9.4444444444vw;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 @media (min-width: 768px) {
   .top-page-hero .top-page-hero__content .hero-message .hero-message__title .hero-message__lead {
@@ -847,6 +851,9 @@ body.menu-open {
   letter-spacing: 0.6041666667vw;
   margin-left: 9.4444444444vw;
   margin-top: 3.3333333333vw;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 @media (min-width: 768px) {
   .top-page-hero .top-page-hero__content .hero-message .hero-message__title .hero-message__main {
@@ -881,6 +888,9 @@ body.menu-open {
   line-height: 160%;
   margin-left: 10.5555555556vw;
   margin-top: 1.9444444444vw;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 @media (min-width: 768px) {
   .top-page-hero .top-page-hero__content .hero-message .hero-message__english {
@@ -898,6 +908,9 @@ body.menu-open {
 }
 .top-page-hero .top-page-hero__content .scroll-indicator {
   display: none;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 @media (min-width: 768px) {
   .top-page-hero .top-page-hero__content .scroll-indicator {

@@ -121,8 +121,6 @@ body.menu-open {
                                     @include desktop-up {
                                         width: ppx(23);
                                     }
-                                    path {
-                                    }
                                 }
                                 @include hover {
                                     &:hover {
@@ -206,8 +204,6 @@ body.menu-open {
                             @include desktop-up {
                                 width: ppx(31);
                                 right: ppx(27);
-                            }
-                            path {
                             }
                         }
                     }
@@ -342,8 +338,6 @@ body.menu-open {
                                     @include desktop-up {
                                         width: ppx(23);
                                     }
-                                    path {
-                                    }
                                 }
                                 @include hover {
                                     &:hover {
@@ -428,8 +422,6 @@ body.menu-open {
                                 width: ppx(31);
                                 right: ppx(27);
                             }
-                            path {
-                            }
                         }
                     }
                     @include hover {
@@ -473,8 +465,6 @@ body.menu-open {
                 .sp-top-icon {
                     width: spx(16);
                     height: auto;
-                    path {
-                    }
                 }
 
                 .sp-top-text {
@@ -522,8 +512,6 @@ body.menu-open {
                 .sp-menu-icon {
                     width: spx(75);
                     height: auto;
-                    path {
-                    }
                 }
 
                 .sp-menu-text {
@@ -596,8 +584,6 @@ body.menu-open {
                         .close-icon {
                             width: spx(65);
                             height: auto;
-                            path {
-                            }
                         }
 
                         .close-text {
@@ -635,8 +621,6 @@ body.menu-open {
                         .nav-icon {
                             width: spx(27);
                             height: auto;
-                            path {
-                            }
                         }
                     }
                 }
@@ -672,6 +656,9 @@ body.menu-open {
                     line-height: 100%;
                     letter-spacing: spx(3.5);
                     margin-left: spx(68);
+                    // アニメーション初期状態
+                    opacity: 0;
+                    transform: translateY(30px);
 
                     @include tablet-up {
                         font-size: ppx(85 * $pc-to-tab-ratio);
@@ -695,6 +682,9 @@ body.menu-open {
                     letter-spacing: spx(4.35);
                     margin-left: spx(68);
                     margin-top: spx(24);
+                    // アニメーション初期状態
+                    opacity: 0;
+                    transform: translateY(30px);
 
                     @include tablet-up {
                         font-size: ppx(115 * $pc-to-tab-ratio);
@@ -727,6 +717,9 @@ body.menu-open {
                 line-height: 160%;
                 margin-left: spx(76);
                 margin-top: spx(14);
+                // アニメーション初期状態
+                opacity: 0;
+                transform: translateY(30px);
 
                 @include tablet-up {
                     font-size: ppx(52 * $pc-to-tab-ratio);
@@ -744,6 +737,9 @@ body.menu-open {
 
         .scroll-indicator {
             display: none;
+            // アニメーション初期状態
+            opacity: 0;
+            transform: translateY(30px);
             @include tablet-up {
                 display: block;
                 width: max-content;
@@ -761,9 +757,6 @@ body.menu-open {
                 }
                 @include desktop-up {
                     height: ppx(112);
-                }
-
-                path {
                 }
             }
         }

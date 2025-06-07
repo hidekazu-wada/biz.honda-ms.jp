@@ -25,6 +25,14 @@ function startLoader() {
       html.classList.add('is-loaded');
       /* ページ内通知用イベント */
       document.dispatchEvent(new Event('assets:ready'));
+
+      /* ヒーローアニメーション開始（トップページのみ） */
+      if (
+        document.body.classList.contains('page-top') &&
+        window.initHeroAnimation
+      ) {
+        window.initHeroAnimation();
+      }
     });
 }
 

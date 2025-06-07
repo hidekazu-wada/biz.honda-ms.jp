@@ -11,5 +11,21 @@
   "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
   "sass.compiler.outputPath": "./assets/css/",
   "dartsass.outputPath": "./assets/css/",
-  "dartsass.disableSourceMap": false
+  "dartsass.disableSourceMap": false,
+  "cSpell.words": [
+    "ACAA",
+    "ACIA",
+    "AINA",
+    "AIRI",
+    "AJUJ",
+    "AJUR",
+    "BAAA",
+    "EAAA",
+    "EACA",
+    "EACI",
+    "fjkensetsu",
+    "gsap",
+    "kyne",
+    "YAAA"
+  ]
 }
