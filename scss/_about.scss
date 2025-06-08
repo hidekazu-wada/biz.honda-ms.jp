@@ -1,0 +1,274 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+.about-page {
+    .about-section {
+        padding-top: spx(10);
+        padding-bottom: spx(121);
+        @include tablet-up {
+            padding-top: ppx(325 * $pc-to-tab-ratio);
+            display: flex;
+            gap: ppx(361 * $pc-to-tab-ratio);
+            padding-bottom: ppx(228 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            padding-top: ppx(325);
+            gap: ppx(361);
+            padding-bottom: ppx(228);
+        }
+        .header__logo {
+            width: spx(199);
+            height: auto;
+            margin-left: spx(32);
+            @include tablet-up {
+                display: none;
+            }
+            .logo-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .company-name {
+                    color: #000;
+                    font-size: spx(16.486);
+                    font-weight: 600;
+                    line-height: 110%;
+                }
+            }
+        }
+
+        .about-section__header-wrapper {
+            width: max-content;
+            margin-inline: auto;
+            margin-top: spx(87);
+            @include tablet-up {
+                margin-inline: unset;
+                margin-left: ppx(314 * $pc-to-tab-ratio);
+                margin-top: 0;
+            }
+            @include desktop-up {
+                margin-left: ppx(314);
+            }
+            .about-section__header {
+                // 既存スタイリング済み - 手を加えない
+            }
+            .line {
+                display: block;
+                width: 1px;
+                height: spx(120);
+                background-color: $base_color_2;
+                margin-inline: auto;
+                margin-top: spx(30);
+                @include tablet-up {
+                    height: ppx(350 * $pc-to-tab-ratio);
+                    margin-top: ppx(51 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    height: ppx(350);
+                    margin-top: ppx(51);
+                }
+            }
+        }
+        .about-section__content {
+            width: spx(600);
+            margin-inline: auto;
+            margin-top: spx(30);
+            @include tablet-up {
+                width: ppx(1024 * $pc-to-tab-ratio);
+                margin-inline: unset;
+                margin-top: ppx(137 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                width: ppx(1024);
+                margin-top: ppx(137);
+            }
+            .about-section__description {
+                color: $base_color_1;
+                font-size: spx(33);
+                font-weight: 500;
+                line-height: 200%;
+                letter-spacing: spx(0.33);
+
+                @include tablet-up {
+                    font-size: ppx(35 * $pc-to-tab-ratio);
+                    letter-spacing: ppx(0.35 * $pc-to-tab-ratio);
+                }
+
+                @include desktop-up {
+                    font-size: ppx(35);
+                    letter-spacing: ppx(0.35);
+                }
+            }
+        }
+    }
+    .about-section__details {
+        background-color: $base_color_2;
+        color: $base_color_white;
+        padding-top: spx(120);
+        padding-bottom: spx(90);
+        @include tablet-up {
+            padding-top: ppx(220 * $pc-to-tab-ratio);
+            padding-bottom: ppx(173 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            padding-top: ppx(220);
+            padding-bottom: ppx(173);
+        }
+        .about-section__detail-list {
+            width: spx(600);
+            margin-inline: auto;
+            display: flex;
+            flex-direction: column;
+            gap: spx(20);
+            @include tablet-up {
+                width: ppx(1650 * $pc-to-tab-ratio);
+                gap: ppx(40 * $pc-to-tab-ratio);
+            }
+            @include desktop-up {
+                width: ppx(1650);
+                gap: ppx(40);
+            }
+            .about-section__detail-item {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding-bottom: spx(25);
+                @include tablet-up {
+                    flex-direction: row;
+                    gap: spx(30 * $pc-to-tab-ratio);
+                    padding-bottom: ppx(44 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    gap: spx(30);
+                    padding-bottom: ppx(44);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $base_color_white;
+                }
+
+                &:last-child {
+                    @include tablet-up {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+                .about-section__detail-term {
+                    color: $base_color_white;
+                    font-size: spx(35);
+                    font-weight: 700;
+                    line-height: 170%;
+                    letter-spacing: spx(3.5);
+                    width: 100%;
+
+                    @include tablet-up {
+                        font-size: ppx(36 * $pc-to-tab-ratio);
+                        letter-spacing: ppx(3.6 * $pc-to-tab-ratio);
+                        width: ppx(290 * $pc-to-tab-ratio);
+                    }
+
+                    @include desktop-up {
+                        font-size: ppx(36);
+                        letter-spacing: ppx(3.6);
+                        width: ppx(290);
+                    }
+                }
+
+                .about-section__detail-description {
+                    color: $base_color_white;
+                    font-size: spx(31);
+                    font-weight: 500;
+                    line-height: 180%;
+
+                    @include tablet-up {
+                        font-size: ppx(33 * $pc-to-tab-ratio);
+                    }
+
+                    @include desktop-up {
+                        font-size: ppx(33);
+                        letter-spacing: ppx(3.3);
+                    }
+                    .about-section__detail-description-company-name {
+                        color: $base_color_white;
+                        font-size: spx(31);
+                        font-weight: 500;
+                        line-height: 180%;
+
+                        @include tablet-up {
+                            font-size: ppx(33 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(33);
+                            letter-spacing: ppx(3.3);
+                        }
+                    }
+                    .about-section__detail-description-english-name {
+                        color: $base_color_white;
+                        font-size: spx(29);
+                        font-weight: 500;
+                        line-height: 180%;
+
+                        @include tablet-up {
+                            font-size: ppx(33 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(33);
+                            letter-spacing: ppx(3.3);
+                        }
+                    }
+                    address {
+                    }
+
+                    .about-section__phone-link {
+                        @include hover {
+                            &:hover {
+                            }
+                        }
+
+                        &:focus-visible {
+                        }
+                    }
+
+                    time {
+                    }
+
+                    .about-section__officer-list {
+                        .about-section__officer-item {
+                        }
+                    }
+
+                    .about-section__business-list {
+                        .about-section__business-item {
+                        }
+                    }
+                }
+            }
+        }
+        .only-sp {
+            display: block;
+            @include tablet-up {
+                display: none;
+            }
+        }
+        .only-tablet-up {
+            display: none;
+            @include tablet-up {
+                display: block;
+            }
+        }
+    }
+}

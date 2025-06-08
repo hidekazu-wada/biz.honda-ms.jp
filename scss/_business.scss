@@ -1,0 +1,205 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+.business-page {
+    .business-section {
+        padding-top: spx(10);
+        padding-bottom: spx(190);
+        @include tablet-up {
+            padding-top: ppx(325 * $pc-to-tab-ratio);
+            padding-bottom: ppx(247 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            padding-top: ppx(325);
+            padding-bottom: ppx(247);
+        }
+        .header__logo {
+            width: spx(199);
+            height: auto;
+            margin-left: spx(32);
+            @include tablet-up {
+                display: none;
+            }
+            .logo-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .company-name {
+                    color: #000;
+                    font-size: spx(16.486);
+                    font-weight: 600;
+                    line-height: 110%;
+                }
+            }
+        }
+
+        .about-section__header-wrapper {
+            width: max-content;
+            margin-inline: auto;
+            margin-top: spx(87);
+            @include tablet-up {
+                margin-top: 0;
+            }
+            .about-section__header {
+                // 既存スタイリング済み - 手を加えない
+            }
+            .line {
+                display: block;
+                width: 1px;
+                height: spx(120);
+                background-color: $base_color_2;
+                margin-inline: auto;
+                margin-top: spx(30);
+                @include tablet-up {
+                    height: ppx(150 * $pc-to-tab-ratio);
+                    margin-top: ppx(51 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    height: ppx(150);
+                    margin-top: ppx(51);
+                }
+            }
+        }
+
+        .business-section__content {
+            .business-list {
+                display: grid;
+                grid-template-columns: max-content max-content;
+                gap: spx(6);
+                width: max-content;
+                margin-inline: auto;
+                margin-top: spx(31);
+                @include tablet-up {
+                    grid-template-columns: max-content max-content max-content;
+                    gap: ppx(15 * $pc-to-tab-ratio);
+                    margin-top: ppx(86 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    gap: ppx(15);
+                    margin-top: ppx(86);
+                }
+                .business-item {
+                    width: spx(317);
+                    height: spx(200);
+                    background-color: $base_color_2;
+                    border-radius: spx(28);
+                    color: $base_color_white;
+                    position: relative;
+                    transition: background-color 0.3s ease;
+                    @include tablet-up {
+                        width: ppx(675 * $pc-to-tab-ratio);
+                        height: ppx(240 * $pc-to-tab-ratio);
+                        border-radius: ppx(30 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        width: ppx(675);
+                        height: ppx(240);
+                        border-radius: ppx(30);
+                    }
+                    .business-item__link {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: spx(8);
+                        padding-top: spx(18);
+                        @include tablet-up {
+                            flex-direction: row;
+                            gap: ppx(28 * $pc-to-tab-ratio);
+                            align-items: center;
+                            padding-left: ppx(50 * $pc-to-tab-ratio);
+                            padding-top: 0;
+                        }
+                        @include desktop-up {
+                            gap: ppx(28);
+                            padding-left: ppx(50);
+                        }
+                        .business-item__icon {
+                            width: spx(110);
+                            height: spx(110);
+                            @include tablet-up {
+                                width: ppx(140 * $pc-to-tab-ratio);
+                                height: ppx(140 * $pc-to-tab-ratio);
+                            }
+                            @include desktop-up {
+                                width: ppx(140);
+                                height: ppx(140);
+                            }
+                            .logo-icon {
+                                width: 100%;
+                                height: 100%;
+                                path {
+                                    transition: fill 0.3s ease;
+                                }
+                            }
+                        }
+
+                        .business-item__name {
+                            font-size: spx(27);
+                            font-weight: 700;
+                            line-height: normal;
+
+                            @include tablet-up {
+                                font-size: ppx(30 * $pc-to-tab-ratio);
+                                letter-spacing: ppx(1.5 * $pc-to-tab-ratio);
+                            }
+
+                            @include desktop-up {
+                                font-size: ppx(30);
+                                letter-spacing: ppx(1.5);
+                            }
+                        }
+
+                        .business-item__arrow {
+                            display: none;
+                            @include tablet-up {
+                                display: block;
+                                width: ppx(31 * $pc-to-tab-ratio);
+                                height: auto;
+                                position: absolute;
+                                top: 50%;
+                                right: ppx(40 * $pc-to-tab-ratio);
+                                transform: translateY(-50%);
+                                @include desktop-up {
+                                    right: ppx(40);
+                                }
+                            }
+                            @include desktop-up {
+                                width: ppx(31);
+                            }
+                        }
+
+                        &:focus-visible {
+                        }
+                    }
+                    @include hover {
+                        &:hover {
+                            background-color: $base_color_3;
+                            .business-item__icon {
+                                .logo-icon {
+                                    path {
+                                        fill: $base_color_3;
+                                    }
+                                }
+                            }
+
+                            .business-item__name {
+                            }
+
+                            .business-item__arrow {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
