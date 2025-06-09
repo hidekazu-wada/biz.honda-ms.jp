@@ -21,8 +21,15 @@ function startLoader() {
     })
     .finally(() => {
       const html = document.documentElement;
-      html.classList.remove('is-loading');
+
+      // 段階的にクラスを変更してスムーズなフェードアウトを実現
       html.classList.add('is-loaded');
+
+      // フェードアウトアニメーション完了後にis-loadingを削除
+      setTimeout(() => {
+        html.classList.remove('is-loading');
+      }, 400); // CSS transition と同じ時間
+
       /* ページ内通知用イベント */
       document.dispatchEvent(new Event('assets:ready'));
 
