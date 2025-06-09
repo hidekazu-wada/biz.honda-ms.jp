@@ -9,7 +9,7 @@ function startLoader() {
 
   /* □ 最低表示: 初回=1s, 再訪=0s ／ □ 最大待機: 共通3s */
   const minHold = new Promise((res) => setTimeout(res, firstVisit ? 1000 : 0));
-  const maxHold = new Promise((res) => setTimeout(res, 3000));
+  const maxHold = new Promise((res) => setTimeout(res, 1000));
   const assets = waitForAssets();
 
   Promise.race([Promise.all([minHold, assets]), maxHold])
@@ -21,8 +21,15 @@ function startLoader() {
     })
     .finally(() => {
       const html = document.documentElement;
-      html.classList.remove('is-loading');
+
+      // 段階的にクラスを変更してスムーズなフェードアウトを実現
       html.classList.add('is-loaded');
+
+      // フェードアウトアニメーション完了後にis-loadingを削除
+      setTimeout(() => {
+        html.classList.remove('is-loading');
+      }, 400); // CSS transition と同じ時間
+
       /* ページ内通知用イベント */
       document.dispatchEvent(new Event('assets:ready'));
 

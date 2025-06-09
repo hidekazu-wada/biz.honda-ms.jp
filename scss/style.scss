@@ -2,4 +2,10 @@
 @use "functions" as *;
 @use "mixins" as *;
 @use "global";
+@use "header";
+@use "footer";
+@use "menu";
 @use "index";
+@use "about";
+@use "business";
+@use "error404";

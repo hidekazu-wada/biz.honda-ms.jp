@@ -4,7 +4,7 @@
 }
 
 /* ─ 初回訪問 × 読込中だけ表示 ─ */
-html.first-visit.is-loading .loading-overlay {
+.first-visit.is-loading .loading-overlay {
   display: grid;
   place-items: center;
   position: fixed;
@@ -12,6 +12,24 @@ html.first-visit.is-loading .loading-overlay {
   background: #fff;
   z-index: 9999;
   transition: opacity 0.4s;
+}
+
+.loading-logo {
+  display: block;
+  width: 45.138889vw;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .loading-logo {
+    width: 20.263672vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loading-logo {
+    width: 11.992188vw;
+  }
 }
 
 /* 読込完了でフェードアウト */

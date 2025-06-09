@@ -39,7 +39,23 @@
 
   <body class="page-top">
     <!-- ローディング画面 (初回のみ表示) -->
-    <div class="loading-overlay">Loading…</div>
+    <div class="loading-overlay">
+      <img
+        class="loading-logo"
+        src="/images/global/fallback/loading-logo-720.png"
+        srcset="
+          /images/global/loading-logo-720.webp   720w,
+          /images/global/loading-logo-1280.webp 1280w,
+          /images/global/loading-logo-2560.webp 2560w
+        "
+        sizes="
+      (min-width: 1024px) 15vw,
+      (min-width: 480px) 20vw,
+      100vw
+    "
+        alt="ホンダ自動車販売株式会社のロゴ"
+      />
+    </div>
 
     <!-- 背景画像 -->
     <div class="bg-wrapper"></div>
@@ -955,7 +971,7 @@
           <div class="business-list" role="list">
             <article class="business-item" role="listitem">
               <a
-                href="/pages/business#honda-cars-yamanashi-east"
+                href="/pages/business.html#honda-cars-yamanashi-east"
                 aria-label="Honda Cars山梨東の詳細を見る"
               >
                 <div class="business-icon" aria-hidden="true">
@@ -1031,7 +1047,7 @@
 
             <article class="business-item" role="listitem">
               <a
-                href="/pages/business#car-seven"
+                href="/pages/business.html#car-seven"
                 aria-label="カーセブンの詳細を見る"
               >
                 <div class="business-icon" aria-hidden="true">
@@ -1091,7 +1107,7 @@
 
             <article class="business-item" role="listitem">
               <a
-                href="/pages/business#docomo-shop"
+                href="/pages/business.html#docomo-shop"
                 aria-label="ドコモショップの詳細を見る"
               >
                 <div class="business-icon" aria-hidden="true">
@@ -1143,7 +1159,7 @@
 
             <article class="business-item" role="listitem">
               <a
-                href="/pages/business#docomo-corporate-sales"
+                href="/pages/business.html#docomo-corporate-sales"
                 aria-label="ドコモ法人営業の詳細を見る"
               >
                 <div class="business-icon" aria-hidden="true">
@@ -1195,7 +1211,7 @@
 
             <article class="business-item" role="listitem">
               <a
-                href="/pages/business#marriage-consultation"
+                href="/pages/business.html#marriage-consultation"
                 aria-label="結婚相談所の詳細を見る"
               >
                 <div class="business-icon" aria-hidden="true">
@@ -1267,15 +1283,22 @@
               <svg
                 class="page-bottom-bar__brand-icon"
                 xmlns="http://www.w3.org/2000/svg"
-                width="18"
+                width="35"
                 height="32"
-                viewBox="0 0 18 32"
+                viewBox="0 0 35 32"
                 fill="none"
                 aria-hidden="true"
                 focusable="false"
               >
                 <path
                   d="M2 30L16 16L2 2"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M19 30L33 16L19 2"
                   stroke="white"
                   stroke-width="4"
                   stroke-linecap="round"
@@ -1315,11 +1338,71 @@
                   stroke-linejoin="round"
                 ></path>
               </svg>
+
               <span class="page-bottom-bar__top-text">TOP</span>
             </a>
           </div>
         </div>
       </div>
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a
+              href="/"
+              class="footer__brand-link"
+              aria-label="ホンダ自動車販売株式会社のトップページへ"
+            >
+              <img
+                class="footer__brand-logo"
+                src="images/global/footer-logo.webp"
+                alt="HONDA MOTOR SALES GROUP"
+              />
+              <p class="footer__brand-name">ホンダ自動車販売株式会社</p>
+            </a>
+          </div>
+          <div class="footer__contact">
+            <address class="footer__address">
+              〒403-0007 山梨県富士吉田市中曽根4-5-15
+            </address>
+            <div class="footer__phone-info">
+              <p class="footer__phone-item">
+                <span class="footer__phone-label">TEL</span>
+                <a href="tel:0555-30-0300" class="footer__phone-number"
+                  >0555-30-0300</a
+                >
+              </p>
+              <p class="footer__phone-item">
+                <span class="footer__phone-label">FAX</span> 0555-24-7300
+              </p>
+            </div>
+          </div>
+          <div class="footer__certification">
+            <a
+              href="https://kenko-keiei.jp/"
+              class="footer__certification-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="健康経営優良法人の詳細を見る"
+            >
+              <img
+                class="footer__certification-logo"
+                src="images/global/footer-kenko.webp"
+                alt="健康経営優良法人"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="footer__copyright-wrapper">
+          <p class="footer__copyright">
+            <small>
+              <span
+                >Copyright © HONDA MOTOR SALES Co.,Ltd.
+                <br class="only-sp" />All Rights Reseved.</span
+              >
+            </small>
+          </p>
+        </div>
+      </footer>
     </main>
   </body>
 </html>

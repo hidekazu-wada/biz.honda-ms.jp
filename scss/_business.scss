@@ -1,0 +1,797 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+.business-page {
+    .business-section {
+        padding-top: spx(10);
+        padding-bottom: spx(190);
+        @include tablet-up {
+            padding-top: ppx(325 * $pc-to-tab-ratio);
+            padding-bottom: ppx(247 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            padding-top: ppx(325);
+            padding-bottom: ppx(247);
+        }
+        .header__logo {
+            width: spx(199);
+            height: auto;
+            margin-left: spx(32);
+            @include tablet-up {
+                display: none;
+            }
+            .logo-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .company-name {
+                    color: #000;
+                    font-size: spx(16.486);
+                    font-weight: 600;
+                    line-height: 110%;
+                }
+            }
+        }
+
+        .about-section__header-wrapper {
+            width: max-content;
+            margin-inline: auto;
+            margin-top: spx(87);
+            @include tablet-up {
+                margin-top: 0;
+            }
+            .about-section__header {
+                // 既存スタイリング済み - 手を加えない
+            }
+            .line {
+                display: block;
+                width: 1px;
+                height: spx(120);
+                background-color: $base_color_2;
+                margin-inline: auto;
+                margin-top: spx(30);
+                @include tablet-up {
+                    height: ppx(150 * $pc-to-tab-ratio);
+                    margin-top: ppx(51 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    height: ppx(150);
+                    margin-top: ppx(51);
+                }
+            }
+        }
+
+        .business-section__content {
+            .business-list {
+                display: grid;
+                grid-template-columns: max-content max-content;
+                gap: spx(6);
+                width: max-content;
+                margin-inline: auto;
+                margin-top: spx(31);
+                @include tablet-up {
+                    grid-template-columns: max-content max-content max-content;
+                    gap: ppx(15 * $pc-to-tab-ratio);
+                    margin-top: ppx(86 * $pc-to-tab-ratio);
+                }
+                @include desktop-up {
+                    gap: ppx(15);
+                    margin-top: ppx(86);
+                }
+                .business-item {
+                    width: spx(317);
+                    height: spx(200);
+                    background-color: $base_color_2;
+                    border-radius: spx(28);
+                    color: $base_color_white;
+                    position: relative;
+                    transition: background-color 0.3s ease;
+                    @include tablet-up {
+                        width: ppx(675 * $pc-to-tab-ratio);
+                        height: ppx(240 * $pc-to-tab-ratio);
+                        border-radius: ppx(30 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        width: ppx(675);
+                        height: ppx(240);
+                        border-radius: ppx(30);
+                    }
+                    .business-item__link {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: spx(8);
+                        padding-top: spx(18);
+                        @include tablet-up {
+                            flex-direction: row;
+                            gap: ppx(28 * $pc-to-tab-ratio);
+                            align-items: center;
+                            padding-left: ppx(50 * $pc-to-tab-ratio);
+                            padding-top: 0;
+                        }
+                        @include desktop-up {
+                            gap: ppx(28);
+                            padding-left: ppx(50);
+                        }
+                        .business-item__icon {
+                            width: spx(110);
+                            height: spx(110);
+                            @include tablet-up {
+                                width: ppx(140 * $pc-to-tab-ratio);
+                                height: ppx(140 * $pc-to-tab-ratio);
+                            }
+                            @include desktop-up {
+                                width: ppx(140);
+                                height: ppx(140);
+                            }
+                            .logo-icon {
+                                width: 100%;
+                                height: 100%;
+                                path {
+                                    transition: fill 0.3s ease;
+                                }
+                            }
+                        }
+
+                        .business-item__name {
+                            font-size: spx(27);
+                            font-weight: 700;
+                            line-height: normal;
+
+                            @include tablet-up {
+                                font-size: ppx(30 * $pc-to-tab-ratio);
+                                letter-spacing: ppx(1.5 * $pc-to-tab-ratio);
+                            }
+
+                            @include desktop-up {
+                                font-size: ppx(30);
+                                letter-spacing: ppx(1.5);
+                            }
+                        }
+
+                        .business-item__arrow {
+                            display: none;
+                            @include tablet-up {
+                                display: block;
+                                width: ppx(31 * $pc-to-tab-ratio);
+                                height: auto;
+                                position: absolute;
+                                top: 50%;
+                                right: ppx(40 * $pc-to-tab-ratio);
+                                transform: translateY(-50%);
+                                @include desktop-up {
+                                    right: ppx(40);
+                                }
+                            }
+                            @include desktop-up {
+                                width: ppx(31);
+                            }
+                        }
+
+                        &:focus-visible {
+                        }
+                    }
+                    @include hover {
+                        &:hover {
+                            background-color: $base_color_3;
+                            .business-item__icon {
+                                .logo-icon {
+                                    path {
+                                        fill: $base_color_3;
+                                    }
+                                }
+                            }
+
+                            .business-item__name {
+                            }
+
+                            .business-item__arrow {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .business-details {
+        padding-bottom: spx(100);
+        @include tablet-up {
+            padding-bottom: ppx(280 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            padding-bottom: ppx(280);
+        }
+        .business-detail {
+            .business-detail__overview {
+                .business-detail__title {
+                    position: relative;
+                    color: $base_color_2;
+                    font-size: spx(45);
+                    font-weight: 700;
+                    line-height: 100%;
+                    letter-spacing: spx(2.25);
+                    padding-bottom: spx(40);
+                    text-align: center;
+                    scroll-margin-top: spx(40);
+
+                    @include tablet-up {
+                        font-size: ppx(66 * $pc-to-tab-ratio);
+                        letter-spacing: ppx(6.6 * $pc-to-tab-ratio);
+                        padding-bottom: ppx(50 * $pc-to-tab-ratio);
+                        scroll-margin-top: ppx(40 * $pc-to-tab-ratio);
+                    }
+
+                    @include desktop-up {
+                        font-size: ppx(66);
+                        letter-spacing: ppx(6.6);
+                        padding-bottom: ppx(50);
+                        scroll-margin-top: ppx(40);
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: spx(300);
+                        height: 1px;
+                        background-color: $base_color_2;
+                        @include tablet-up {
+                            width: ppx(300 * $pc-to-tab-ratio);
+                        }
+                        @include desktop-up {
+                            width: ppx(300);
+                        }
+                    }
+                }
+
+                .business-detail__description {
+                    color: $base_color_1;
+                    font-size: spx(33);
+                    font-weight: 500;
+                    line-height: 200%;
+                    letter-spacing: spx(0.33);
+                    width: spx(600);
+                    margin-inline: auto;
+                    margin-top: spx(70);
+
+                    @include tablet-up {
+                        font-size: ppx(35 * $pc-to-tab-ratio);
+                        letter-spacing: ppx(0.35 * $pc-to-tab-ratio);
+                        width: ppx(1337 * $pc-to-tab-ratio);
+                        margin-top: ppx(90 * $pc-to-tab-ratio);
+                    }
+
+                    @include desktop-up {
+                        font-size: ppx(35);
+                        letter-spacing: ppx(0.35);
+                        width: ppx(1337);
+                        margin-top: ppx(90);
+                    }
+                    .store-card__description-note {
+                        display: block;
+                        font-size: spx(29);
+                        font-weight: 500;
+                        line-height: 160%;
+                        letter-spacing: spx(0.29);
+                        margin-top: spx(30);
+
+                        @include tablet-up {
+                            font-size: ppx(30 * $pc-to-tab-ratio);
+                            letter-spacing: ppx(0.3 * $pc-to-tab-ratio);
+                            margin-top: 0;
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(30);
+                            line-height: 200%;
+                            letter-spacing: ppx(0.3);
+                        }
+                    }
+                }
+
+                .business-detail__official-link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: spx(13);
+                    width: max-content;
+                    margin-inline: auto;
+                    margin-top: spx(40);
+                    padding-bottom: spx(30);
+                    @include tablet-up {
+                        gap: ppx(13 * $pc-to-tab-ratio);
+                        margin-top: ppx(70 * $pc-to-tab-ratio);
+                        padding-bottom: 0;
+                    }
+                    @include desktop-up {
+                        gap: ppx(13);
+                        margin-top: ppx(70);
+                    }
+                    .business-detail__official-link-icon {
+                        circle {
+                            transition: fill 0.3s ease;
+                        }
+                        g {
+                            path {
+                                transition: fill 0.3s ease;
+                            }
+                        }
+                    }
+                    @include hover {
+                        &:hover {
+                            .business-detail__official-link-icon {
+                                circle {
+                                    fill: $base_color_2;
+                                }
+                                g {
+                                    path {
+                                        fill: $base_color_white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:focus-visible {
+                    }
+
+                    .business-detail__official-link-icon {
+                        width: spx(140);
+                        height: spx(140);
+                        @include tablet-up {
+                            width: ppx(140 * $pc-to-tab-ratio);
+                            height: ppx(140 * $pc-to-tab-ratio);
+                        }
+                        @include desktop-up {
+                            width: ppx(140);
+                            height: ppx(140);
+                        }
+                    }
+                    .business-detail__official-link-text {
+                        color: $base_color_2;
+                        font-size: spx(26);
+                        font-weight: 500;
+                        line-height: 100%;
+
+                        @include tablet-up {
+                            font-size: ppx(26 * $pc-to-tab-ratio);
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(26);
+                        }
+                    }
+                }
+            }
+
+            .business-detail__stores {
+                .sr-only {
+                    display: none;
+                }
+
+                .store-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: spx(50);
+                    padding-bottom: spx(250);
+                    margin-top: spx(70);
+                    @include tablet-up {
+                        gap: ppx(60 * $pc-to-tab-ratio);
+                        padding-bottom: ppx(350 * $pc-to-tab-ratio);
+                        margin-top: ppx(110 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        gap: ppx(60);
+                        padding-bottom: ppx(350);
+                        margin-top: ppx(110);
+                    }
+                    .store-list__item {
+                        .store-card {
+                            background: linear-gradient(156deg, #fff 59.5%, #efeaea 100%);
+                            box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
+                            width: spx(640);
+                            height: auto;
+                            margin-inline: auto;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: spx(40);
+                            padding-bottom: spx(60);
+                            @include tablet-up {
+                                width: ppx(1865 * $pc-to-tab-ratio);
+                                flex-direction: row;
+                                gap: ppx(80 * $pc-to-tab-ratio);
+                                padding-bottom: 0;
+                            }
+                            @include desktop-up {
+                                width: ppx(1865);
+                                gap: ppx(80);
+                            }
+                            .store-card__image {
+                                width: spx(640);
+                                height: spx(416);
+                                @include tablet-up {
+                                    width: ppx(670 * $pc-to-tab-ratio);
+                                    height: ppx(435 * $pc-to-tab-ratio);
+                                }
+                                @include desktop-up {
+                                    width: ppx(670);
+                                    height: ppx(435);
+                                }
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+
+                            .store-card__content {
+                                display: flex;
+                                flex-direction: column;
+                                gap: spx(8);
+                                @include tablet-up {
+                                    padding-top: ppx(65 * $pc-to-tab-ratio);
+                                    gap: ppx(58 * $pc-to-tab-ratio);
+                                }
+                                @include desktop-up {
+                                    padding-top: ppx(65);
+                                    gap: ppx(58);
+                                }
+                                .store-card__header {
+                                    width: spx(570);
+                                    margin-inline: auto;
+                                    text-align: center;
+                                    @include tablet-up {
+                                        width: ppx(1040 * $pc-to-tab-ratio);
+                                        margin-inline: unset;
+                                        text-align: left;
+                                    }
+                                    @include desktop-up {
+                                        width: ppx(1040);
+                                    }
+                                    .store-card__name {
+                                        color: $base_color_1;
+                                        font-size: spx(45);
+                                        font-weight: 700;
+                                        line-height: 120%;
+                                        letter-spacing: spx(4.5);
+
+                                        @include tablet-up {
+                                            font-size: ppx(45 * $pc-to-tab-ratio);
+                                            letter-spacing: ppx(4.5 * $pc-to-tab-ratio);
+                                        }
+
+                                        @include desktop-up {
+                                            font-size: ppx(45);
+                                            letter-spacing: ppx(4.5);
+                                        }
+                                        .only-sp {
+                                            display: block;
+                                            @include tablet-up {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                                .store-card__body {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: spx(38);
+                                    @include tablet-up {
+                                        flex-direction: row;
+                                        gap: ppx(81 * $pc-to-tab-ratio);
+                                    }
+                                    @include desktop-up {
+                                        gap: ppx(81);
+                                    }
+                                    .store-card__actions {
+                                        .store-card__contact {
+                                            display: flex;
+                                            align-items: center;
+                                            gap: spx(15);
+                                            width: max-content;
+                                            margin-inline: auto;
+                                            @include tablet-up {
+                                                gap: ppx(15 * $pc-to-tab-ratio);
+                                                margin-inline: unset;
+                                            }
+                                            @include desktop-up {
+                                                gap: ppx(15);
+                                            }
+                                            .store-card__contact-label {
+                                                color: $base_color_2;
+                                                font-size: spx(33);
+                                                font-weight: 500;
+                                                line-height: 100%;
+
+                                                @include tablet-up {
+                                                    font-size: ppx(33 * $pc-to-tab-ratio);
+                                                }
+
+                                                @include desktop-up {
+                                                    font-size: ppx(33);
+                                                }
+                                            }
+
+                                            .store-card__phone {
+                                                color: $base_color_2;
+                                                font-size: spx(51);
+                                                font-weight: 700;
+                                                line-height: 180%;
+
+                                                @include tablet-up {
+                                                    font-size: ppx(51 * $pc-to-tab-ratio);
+                                                }
+
+                                                @include desktop-up {
+                                                    font-size: ppx(51);
+                                                }
+                                                @include hover {
+                                                    &:hover {
+                                                    }
+                                                }
+
+                                                &:focus-visible {
+                                                }
+                                            }
+                                        }
+
+                                        .store-card__official-link {
+                                            display: flex;
+                                            align-items: center;
+                                            gap: spx(17);
+                                            width: max-content;
+                                            margin-inline: auto;
+                                            margin-top: spx(8);
+                                            @include tablet-up {
+                                                gap: ppx(17 * $pc-to-tab-ratio);
+                                                margin-inline: unset;
+                                                margin-top: ppx(11 * $pc-to-tab-ratio);
+                                            }
+                                            @include desktop-up {
+                                                gap: ppx(17);
+                                                margin-top: ppx(11);
+                                            }
+                                            .store-card__official-link-icon {
+                                                width: spx(80);
+                                                height: spx(80);
+                                                @include tablet-up {
+                                                    width: ppx(80 * $pc-to-tab-ratio);
+                                                    height: ppx(80 * $pc-to-tab-ratio);
+                                                }
+                                                @include desktop-up {
+                                                    width: ppx(80);
+                                                    height: ppx(80);
+                                                }
+                                                circle {
+                                                    transition: fill 0.3s ease;
+                                                }
+                                                g {
+                                                    path {
+                                                        transition: fill 0.3s ease;
+                                                    }
+                                                }
+                                            }
+
+                                            &:focus-visible {
+                                            }
+
+                                            .store-card__official-link-icon {
+                                            }
+
+                                            .store-card__official-link-text {
+                                                color: var(--base_color_2, #c11313);
+                                                font-size: spx(26);
+                                                font-weight: 500;
+                                                line-height: 100%;
+
+                                                @include tablet-up {
+                                                    font-size: ppx(26 * $pc-to-tab-ratio);
+                                                }
+
+                                                @include desktop-up {
+                                                    font-size: ppx(26);
+                                                }
+                                            }
+                                            @include hover {
+                                                &:hover {
+                                                    .store-card__official-link-icon {
+                                                        circle {
+                                                            fill: $base_color_2;
+                                                        }
+                                                        g {
+                                                            path {
+                                                                fill: $base_color_white;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .store-card__info {
+                                        color: var(--base_color_1, #231f20);
+                                        font-size: spx(26);
+                                        font-weight: 500;
+                                        line-height: 130%;
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: spx(3);
+                                        @include tablet-up {
+                                            gap: ppx(3 * $pc-to-tab-ratio);
+                                        }
+                                        @include desktop-up {
+                                            gap: ppx(3);
+                                        }
+
+                                        @include tablet-up {
+                                            font-size: ppx(26 * $pc-to-tab-ratio);
+                                            margin-top: ppx(20 * $pc-to-tab-ratio);
+                                        }
+
+                                        @include desktop-up {
+                                            font-size: ppx(26);
+                                            margin-top: ppx(20);
+                                        }
+                                        .store-card__info-group {
+                                            width: spx(546);
+                                            margin-inline: auto;
+                                            padding-bottom: spx(9);
+                                            position: relative;
+                                            @include tablet-up {
+                                                width: ppx(546 * $pc-to-tab-ratio);
+                                                margin-inline: unset;
+                                                padding-bottom: ppx(9 * $pc-to-tab-ratio);
+                                            }
+                                            @include desktop-up {
+                                                width: ppx(546);
+                                                padding-bottom: ppx(9);
+                                            }
+                                            &::before {
+                                                content: "";
+                                                position: absolute;
+                                                bottom: 0;
+                                                left: 0;
+                                                display: block;
+                                                background: linear-gradient(
+                                                        to right,
+                                                        rgba(67, 67, 67, 1),
+                                                        rgba(67, 67, 67, 1) 25%,
+                                                        rgba(0, 0, 0, 0) 25%,
+                                                        rgba(0, 0, 0, 0) 100%
+                                                    )
+                                                    0% 0%;
+                                                background-size: 4px 1px;
+                                                width: 100%;
+                                                height: 1px;
+                                            }
+                                            .store-card__address {
+                                                display: flex;
+                                                gap: spx(8);
+                                                @include tablet-up {
+                                                    gap: ppx(8 * $pc-to-tab-ratio);
+                                                }
+                                                @include desktop-up {
+                                                    gap: ppx(8);
+                                                }
+                                                .store-card__postal-code {
+                                                    display: inline-block;
+                                                    width: spx(148);
+                                                    @include tablet-up {
+                                                        width: ppx(148 * $pc-to-tab-ratio);
+                                                    }
+                                                    @include desktop-up {
+                                                        width: ppx(148);
+                                                    }
+                                                }
+
+                                                .store-card__location {
+                                                }
+                                            }
+
+                                            .store-card__hours {
+                                                display: flex;
+                                                align-items: center;
+                                                gap: spx(8);
+                                                @include tablet-up {
+                                                    gap: ppx(8 * $pc-to-tab-ratio);
+                                                }
+                                                @include desktop-up {
+                                                    gap: ppx(8);
+                                                }
+                                                .store-card__hours-label {
+                                                    display: inline-block;
+                                                    width: spx(148);
+                                                    @include tablet-up {
+                                                        width: ppx(148 * $pc-to-tab-ratio);
+                                                    }
+                                                    @include desktop-up {
+                                                        width: ppx(148);
+                                                    }
+                                                }
+
+                                                .store-card__hours-time {
+                                                }
+                                            }
+
+                                            .store-card__fax {
+                                                display: flex;
+                                                align-items: center;
+                                                gap: spx(8);
+                                                @include tablet-up {
+                                                    gap: ppx(8 * $pc-to-tab-ratio);
+                                                }
+                                                @include desktop-up {
+                                                    gap: ppx(8);
+                                                }
+                                                .store-card__fax-label {
+                                                    display: inline-block;
+                                                    width: spx(148);
+                                                    @include tablet-up {
+                                                        width: ppx(148 * $pc-to-tab-ratio);
+                                                    }
+                                                    @include desktop-up {
+                                                        width: ppx(148);
+                                                    }
+                                                }
+
+                                                .store-card__fax-number {
+                                                }
+                                            }
+
+                                            .store-card__holiday {
+                                                display: flex;
+                                                align-items: center;
+                                                gap: spx(8);
+                                                @include tablet-up {
+                                                    gap: ppx(8 * $pc-to-tab-ratio);
+                                                }
+                                                @include desktop-up {
+                                                    gap: ppx(8);
+                                                }
+                                                .store-card__holiday-label {
+                                                    display: inline-block;
+                                                    width: spx(148);
+                                                    @include tablet-up {
+                                                        width: ppx(148 * $pc-to-tab-ratio);
+                                                    }
+                                                    @include desktop-up {
+                                                        width: ppx(148);
+                                                    }
+                                                }
+
+                                                .store-card__holiday-text {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 最後のbusiness-detail内のstore-listのpadding-bottomを0に
+        .business-detail:last-child {
+            .business-detail__stores {
+                .store-list {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}

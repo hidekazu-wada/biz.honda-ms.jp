@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- ← ここではクラス付与しない -->
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Noto+Sans+JP:wght@500;700&family=Noto+Serif+JP:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/destyle.min.css" />
+    <link rel="stylesheet" href="../assets/css/loader.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>No-Flicker Loader Demo</title>
+
+    <!-- ① 最優先: 初回判定 -->
+    <script src="../assets/js/loader-init.js"></script>
+
+    <!-- ② ローディング用 CSS -->
+    <link rel="stylesheet" href="../assets/css/loader.css" />
+
+    <!-- ③ ユーティリティ & ブートローダー -->
+    <script type="module" defer src="../assets/js/asset-waiter.js"></script>
+    <script type="module" defer src="../assets/js/boot-loader.js"></script>
+
+    <!-- グローバルメニュー制御 -->
+    <script defer src="../assets/js/global-menu.js"></script>
+
+    <!-- 固定ヘッダー制御 -->
+    <script defer src="../assets/js/fixed-header.js"></script>
+
+    <!-- 404ページ カウントダウン機能 -->
+    <script defer src="../assets/js/countdown.js"></script>
+  </head>
+
+  <body class="error404-page">
+    <!-- ローディング画面 (初回のみ表示) -->
+    <div class="loading-overlay">
+      <img
+        class="loading-logo"
+        src="../images/global/fallback/loading-logo-720.png"
+        srcset="
+          ../images/global/loading-logo-720.webp   720w,
+          ../images/global/loading-logo-1280.webp 1280w,
+          ../images/global/loading-logo-2560.webp 2560w
+        "
+        sizes="
+    (min-width: 1024px) 15vw,
+    (min-width: 480px) 20vw,
+    100vw
+  "
+        alt="ホンダ自動車販売株式会社のロゴ"
+      />
+    </div>
+
+    <!-- 背景画像 -->
+    <div class="bg-wrapper"></div>
+
+    <!-- メインコンテンツ -->
+    <main>
+      <!-- 全ページにあるヘッダー 最上部に固定 tablet-upのみ表示 topページでは途中から表示 下層ページでは最初から表示 -->
+      <header class="site-header site-header--fixed tablet-up">
+        <div class="header__logo">
+          <a href="/" class="logo-link">
+            <img src="../images/top/hero/logo.webp" alt="ロゴ" />
+            <span class="company-name">ホンダ自動車販売株式会社</span>
+          </a>
+        </div>
+        <div class="header__content">
+          <nav class="main-nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="/" class="nav-link">
+                  <span>ＴＯＰ</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="27"
+                    height="25"
+                    viewBox="0 0 27 25"
+                    fill="none"
+                    class="nav-icon"
+                  >
+                    <path
+                      d="M2 23L12.5 12.5L2 2"
+                      stroke="#C11313"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M14.5 23L25 12.5L14.5 2"
+                      stroke="#C11313"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/about.html" class="nav-link">
+                  <span>会社概要</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="27"
+                    height="25"
+                    viewBox="0 0 27 25"
+                    fill="none"
+                    class="nav-icon"
+                  >
+                    <path
+                      d="M2 23L12.5 12.5L2 2"
+                      stroke="#C11313"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M14.5 23L25 12.5L14.5 2"
+                      stroke="#C11313"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/business.html" class="nav-link">
+                  <span>事業概要</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="27"
+                    height="25"
+                    viewBox="0 0 27 25"
+                    fill="none"
+                    class="nav-icon"
+                  >
+                    <path
+                      d="M2 23L12.5 12.5L2 2"
+                      stroke="#C11313"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M14.5 23L25 12.5L14.5 2"
+                      stroke="#C11313"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="recruit-section">
+            <a
+              href="http://honda-ms.jp/pages/recruit.html"
+              class="recruit-link"
+              target="_blank"
+            >
+              <div class="recruit-content">
+                <p class="recruit-title">RECRUIT</p>
+                <p class="recruit-subtitle">採用情報はこちら</p>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="32"
+                viewBox="0 0 35 32"
+                fill="none"
+                class="recruit-icon"
+              >
+                <path
+                  d="M2 30L16 16L2 2"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M19 30L33 16L19 2"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- spページのみにあるヘッダー 最上部に固定 spページのみ表示 -->
+      <header class="site-header site-header--fixed only-sp">
+        <div class="sp-top-section">
+          <a href="#" class="sp-top-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="22"
+              viewBox="0 0 20 22"
+              fill="none"
+              class="sp-top-icon"
+            >
+              <path
+                d="M18.2581 20L10.129 11.871L2 20"
+                stroke="#C11313"
+                stroke-width="2.32258"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.2581 10.1289L10.129 1.99987L2 10.1289"
+                stroke="#C11313"
+                stroke-width="2.32258"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="sp-top-text">TOP</span>
+          </a>
+        </div>
+
+        <div class="sp-recruit-section">
+          <a
+            href="http://honda-ms.jp/pages/recruit.html"
+            class="sp-recruit-link"
+            target="_blank"
+          >
+            <p class="sp-recruit-title">RECRUIT</p>
+            <p class="sp-recruit-subtitle">採用情報はこちら</p>
+          </a>
+        </div>
+
+        <div class="sp-menu-section">
+          <button type="button" class="sp-menu-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="76"
+              height="46"
+              viewBox="0 0 76 46"
+              fill="none"
+              class="sp-menu-icon"
+            >
+              <path
+                d="M0.5 3H75.5"
+                stroke="white"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M0.5 23H75.5"
+                stroke="white"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M0.5 43H75.5"
+                stroke="white"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="sp-menu-text">MENU</span>
+          </button>
+        </div>
+      </header>
+      <nav class="global-menu only-sp">
+        <div class="global-menu__container">
+          <header class="global-menu__header">
+            <div class="global-menu__logo">
+              <a href="/" class="logo-link">
+                <img src="../images/top/hero/logo.webp" alt="ロゴ" />
+                <span class="company-name">ホンダ自動車販売株式会社</span>
+              </a>
+            </div>
+            <div class="global-menu__close">
+              <button type="button" class="close-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="69"
+                  height="52"
+                  viewBox="0 0 69 52"
+                  fill="none"
+                  class="close-icon"
+                >
+                  <path
+                    d="M1.73389 3.05664L67.266 48.9428"
+                    stroke="#C11313"
+                    stroke-width="5.16398"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M67.2661 3.05664L1.73395 48.9428"
+                    stroke="#C11313"
+                    stroke-width="5.16398"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="close-text">CLOSE</span>
+              </button>
+            </div>
+          </header>
+          <ul class="global-menu__nav-list">
+            <li class="nav-item">
+              <a href="/" class="nav-link">
+                <span class="nav-text">TOP</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="27"
+                  height="25"
+                  viewBox="0 0 27 25"
+                  fill="none"
+                  class="nav-icon"
+                >
+                  <path
+                    d="M2 23L12.5 12.5L2 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14.5 23L25 12.5L14.5 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../pages/about.html" class="nav-link">
+                <span class="nav-text">会社概要</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="27"
+                  height="25"
+                  viewBox="0 0 27 25"
+                  fill="none"
+                  class="nav-icon"
+                >
+                  <path
+                    d="M2 23L12.5 12.5L2 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14.5 23L25 12.5L14.5 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../pages/business.html" class="nav-link">
+                <span class="nav-text">事業概要</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="27"
+                  height="25"
+                  viewBox="0 0 27 25"
+                  fill="none"
+                  class="nav-icon"
+                >
+                  <path
+                    d="M2 23L12.5 12.5L2 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14.5 23L25 12.5L14.5 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://honda-ms.jp/pages/recruit.html"
+                target="_blank"
+                class="nav-link"
+              >
+                <span class="nav-text">採用情報</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="27"
+                  height="25"
+                  viewBox="0 0 27 25"
+                  fill="none"
+                  class="nav-icon"
+                >
+                  <path
+                    d="M2 23L12.5 12.5L2 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14.5 23L25 12.5L14.5 2"
+                    stroke="#C11313"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- ここにページ固有のコンテンツを記述 -->
+      <section class="error404-content">
+        <div class="header__logo">
+          <a
+            href="/"
+            class="logo-link"
+            aria-label="ホンダ自動車販売株式会社のトップページへ"
+          >
+            <img
+              src="/images/top/hero/logo.webp"
+              alt="ホンダ自動車販売株式会社のロゴ"
+            />
+            <span class="company-name">ホンダ自動車販売株式会社</span>
+          </a>
+        </div>
+        <div class="error404-container">
+          <div class="error404-text-wrapper">
+            <h2 class="error404-title">404 NOT FOUND</h2>
+            <p class="error404-text">
+              お探しのページが見つかりませんでした。<br />
+              トップページへご案内いたします。<br />
+              <span class="error404-text-span">
+                ※このページは
+                <span class="error404-text-span-number"> 10 </span>
+                秒後に自動的にジャンプします。
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
