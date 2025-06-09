@@ -9,7 +9,7 @@ function startLoader() {
 
   /* □ 最低表示: 初回=1s, 再訪=0s ／ □ 最大待機: 共通3s */
   const minHold = new Promise((res) => setTimeout(res, firstVisit ? 1000 : 0));
-  const maxHold = new Promise((res) => setTimeout(res, 3000));
+  const maxHold = new Promise((res) => setTimeout(res, 1000));
   const assets = waitForAssets();
 
   Promise.race([Promise.all([minHold, assets]), maxHold])

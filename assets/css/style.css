@@ -3654,4 +3654,153 @@ body.menu-open {
 }
 .business-page .business-details .business-detail:last-child .business-detail__stores .store-list {
   padding-bottom: 0;
+}
+
+.error404-page {
+  padding-top: 0;
+}
+@media (min-width: 768px) {
+  .error404-page {
+    padding-top: 6.84vw;
+  }
+}
+@media (min-width: 1024px) {
+  .error404-page {
+    padding-top: 5.47vw;
+  }
+}
+.error404-page .error404-content {
+  padding-top: 1.3888888889vw;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content {
+    padding-top: 0;
+  }
+}
+.error404-page .error404-content .header__logo {
+  width: 27.6388888889vw;
+  height: auto;
+  margin-left: 4.4444444444vw;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content .header__logo {
+    display: none;
+  }
+}
+.error404-page .error404-content .header__logo .logo-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.error404-page .error404-content .header__logo .logo-link img {
+  width: 100%;
+  height: auto;
+}
+.error404-page .error404-content .header__logo .logo-link .company-name {
+  color: #000;
+  font-size: 2.2897222222vw;
+  font-weight: 600;
+  line-height: 110%;
+}
+.error404-page .error404-content .error404-container {
+  width: 100%;
+  height: calc(100svh - 18.0555555556vw - 24.0277777778vw - 1.3888888889vw);
+  display: grid;
+  place-items: center;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content .error404-container {
+    height: calc(100svh - 6.84vw);
+  }
+}
+@media (min-width: 1024px) {
+  .error404-page .error404-content .error404-container {
+    height: calc(100svh - 5.47vw);
+  }
+}
+.error404-page .error404-content .error404-container .error404-text-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4.1666666667vw;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper {
+    gap: 2.197265625vw;
+  }
+}
+@media (min-width: 1024px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper {
+    gap: 1.7578125vw;
+  }
+}
+.error404-page .error404-content .error404-container .error404-text-wrapper .error404-title {
+  font-family: "Noto Serif JP", serif;
+  color: #c11313;
+  font-size: 9.4444444444vw;
+  font-weight: 700;
+  line-height: 15.4166666667vw;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper .error404-title {
+    font-size: 4.638671875vw;
+    line-height: 7.080078125vw;
+  }
+}
+@media (min-width: 1024px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper .error404-title {
+    font-size: 3.7109375vw;
+    line-height: 5.6640625vw;
+  }
+}
+.error404-page .error404-content .error404-container .error404-text-wrapper .error404-text {
+  color: #231f20;
+  font-size: 4.0277777778vw;
+  font-weight: 500;
+  line-height: 180%;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper .error404-text {
+    font-size: 1.708984375vw;
+    line-height: 3.41796875vw;
+  }
+}
+@media (min-width: 1024px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper .error404-text {
+    font-size: 1.3671875vw;
+    line-height: 200%;
+  }
+}
+.error404-page .error404-content .error404-container .error404-text-wrapper .error404-text .error404-text-span {
+  color: #231f20;
+  font-size: 3.4722222222vw;
+  font-weight: 500;
+  line-height: 180%;
+}
+@media (min-width: 768px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper .error404-text .error404-text-span {
+    font-size: 1.708984375vw;
+    line-height: 3.41796875vw;
+  }
+}
+@media (min-width: 1024px) {
+  .error404-page .error404-content .error404-container .error404-text-wrapper .error404-text .error404-text-span {
+    font-size: 1.3671875vw;
+    line-height: 200%;
+  }
 }/*# sourceMappingURL=style.css.map */
