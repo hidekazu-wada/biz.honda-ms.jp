@@ -14,6 +14,24 @@ html.first-visit.is-loading .loading-overlay {
   transition: opacity 0.4s;
 }
 
+.loading-logo {
+  display: block;
+  width: 45.138889vw;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .loading-logo {
+    width: 20.263672vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loading-logo {
+    width: 11.992188vw;
+  }
+}
+
 /* 読込完了でフェードアウト */
 html.is-loaded .loading-overlay {
   opacity: 0;
