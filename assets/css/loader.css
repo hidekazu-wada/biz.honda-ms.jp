@@ -4,7 +4,7 @@
 }
 
 /* ─ 初回訪問 × 読込中だけ表示 ─ */
-html.first-visit.is-loading .loading-overlay {
+.first-visit.is-loading .loading-overlay {
   display: grid;
   place-items: center;
   position: fixed;
