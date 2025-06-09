@@ -15,6 +15,17 @@ html {
   scroll-behavior: smooth;
   font-family: "Noto Sans JP", sans-serif;
   line-height: 1;
+  scroll-padding-top: 0;
+}
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 6.84vw;
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 5.47vw;
+  }
 }
 html body {
   width: 100vw;
@@ -2947,6 +2958,19 @@ body.menu-open {
     fill: #e3a113;
   }
 }
+.business-page .business-details {
+  padding-bottom: 13.8888888889vw;
+}
+@media (min-width: 768px) {
+  .business-page .business-details {
+    padding-bottom: 12.03125vw;
+  }
+}
+@media (min-width: 1024px) {
+  .business-page .business-details {
+    padding-bottom: 10.9375vw;
+  }
+}
 .business-page .business-details .business-detail .business-detail__overview .business-detail__title {
   position: relative;
   color: #c11313;
@@ -2956,12 +2980,14 @@ body.menu-open {
   letter-spacing: 0.3125vw;
   padding-bottom: 5.5555555556vw;
   text-align: center;
+  scroll-margin-top: 5.5555555556vw;
 }
 @media (min-width: 768px) {
   .business-page .business-details .business-detail .business-detail__overview .business-detail__title {
     font-size: 2.8359375vw;
     letter-spacing: 0.28359375vw;
     padding-bottom: 2.1484375vw;
+    scroll-margin-top: 1.71875vw;
   }
 }
 @media (min-width: 1024px) {
@@ -2969,6 +2995,7 @@ body.menu-open {
     font-size: 2.578125vw;
     letter-spacing: 0.2578125vw;
     padding-bottom: 1.953125vw;
+    scroll-margin-top: 1.5625vw;
   }
 }
 .business-page .business-details .business-detail .business-detail__overview .business-detail__title::before {
@@ -3018,6 +3045,28 @@ body.menu-open {
     margin-top: 3.515625vw;
   }
 }
+.business-page .business-details .business-detail .business-detail__overview .business-detail__description .store-card__description-note {
+  display: block;
+  font-size: 4.0277777778vw;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.0402777778vw;
+  margin-top: 4.1666666667vw;
+}
+@media (min-width: 768px) {
+  .business-page .business-details .business-detail .business-detail__overview .business-detail__description .store-card__description-note {
+    font-size: 1.2890625vw;
+    letter-spacing: 0.012890625vw;
+    margin-top: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .business-page .business-details .business-detail .business-detail__overview .business-detail__description .store-card__description-note {
+    font-size: 1.171875vw;
+    line-height: 200%;
+    letter-spacing: 0.01171875vw;
+  }
+}
 .business-page .business-details .business-detail .business-detail__overview .business-detail__official-link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3035,11 +3084,13 @@ body.menu-open {
   width: max-content;
   margin-inline: auto;
   margin-top: 5.5555555556vw;
+  padding-bottom: 4.1666666667vw;
 }
 @media (min-width: 768px) {
   .business-page .business-details .business-detail .business-detail__overview .business-detail__official-link {
     gap: 0.55859375vw;
     margin-top: 3.0078125vw;
+    padding-bottom: 0;
   }
 }
 @media (min-width: 1024px) {
@@ -3099,12 +3150,38 @@ body.menu-open {
 .business-page .business-details .business-detail .business-detail__stores .sr-only {
   display: none;
 }
+.business-page .business-details .business-detail .business-detail__stores .store-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 6.9444444444vw;
+  padding-bottom: 34.7222222222vw;
+  margin-top: 9.7222222222vw;
+}
+@media (min-width: 768px) {
+  .business-page .business-details .business-detail .business-detail__stores .store-list {
+    gap: 2.578125vw;
+    padding-bottom: 15.0390625vw;
+    margin-top: 4.7265625vw;
+  }
+}
+@media (min-width: 1024px) {
+  .business-page .business-details .business-detail .business-detail__stores .store-list {
+    gap: 2.34375vw;
+    padding-bottom: 13.671875vw;
+    margin-top: 4.296875vw;
+  }
+}
 .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card {
   background: linear-gradient(156deg, #fff 59.5%, #efeaea 100%);
   -webkit-box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
   width: 88.8888888889vw;
-  height: 135.6944444444vw;
+  height: auto;
   margin-inline: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3117,22 +3194,22 @@ body.menu-open {
       -ms-flex-align: center;
           align-items: center;
   gap: 5.5555555556vw;
+  padding-bottom: 8.3333333333vw;
 }
 @media (min-width: 768px) {
   .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card {
     width: 80.13671875vw;
-    height: 18.69140625vw;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     gap: 3.4375vw;
+    padding-bottom: 0;
   }
 }
 @media (min-width: 1024px) {
   .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card {
     width: 72.8515625vw;
-    height: 16.9921875vw;
     gap: 3.125vw;
   }
 }
@@ -3214,6 +3291,14 @@ body.menu-open {
   .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card .store-card__content .store-card__header .store-card__name {
     font-size: 1.7578125vw;
     letter-spacing: 0.17578125vw;
+  }
+}
+.business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card .store-card__content .store-card__header .store-card__name .only-sp {
+  display: block;
+}
+@media (min-width: 768px) {
+  .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card .store-card__content .store-card__header .store-card__name .only-sp {
+    display: none;
   }
 }
 .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card .store-card__content .store-card__body {
@@ -3566,4 +3651,7 @@ body.menu-open {
   .business-page .business-details .business-detail .business-detail__stores .store-list .store-list__item .store-card .store-card__content .store-card__body .store-card__info .store-card__info-group .store-card__holiday .store-card__holiday-label {
     width: 5.78125vw;
   }
+}
+.business-page .business-details .business-detail:last-child .business-detail__stores .store-list {
+  padding-bottom: 0;
 }/*# sourceMappingURL=style.css.map */

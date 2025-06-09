@@ -204,6 +204,13 @@
     }
 
     .business-details {
+        padding-bottom: spx(100);
+        @include tablet-up {
+            padding-bottom: ppx(280 * $pc-to-tab-ratio);
+        }
+        @include desktop-up {
+            padding-bottom: ppx(280);
+        }
         .business-detail {
             .business-detail__overview {
                 .business-detail__title {
@@ -215,17 +222,20 @@
                     letter-spacing: spx(2.25);
                     padding-bottom: spx(40);
                     text-align: center;
+                    scroll-margin-top: spx(40);
 
                     @include tablet-up {
                         font-size: ppx(66 * $pc-to-tab-ratio);
                         letter-spacing: ppx(6.6 * $pc-to-tab-ratio);
                         padding-bottom: ppx(50 * $pc-to-tab-ratio);
+                        scroll-margin-top: ppx(40 * $pc-to-tab-ratio);
                     }
 
                     @include desktop-up {
                         font-size: ppx(66);
                         letter-spacing: ppx(6.6);
                         padding-bottom: ppx(50);
+                        scroll-margin-top: ppx(40);
                     }
                     &::before {
                         content: "";
@@ -268,6 +278,26 @@
                         width: ppx(1337);
                         margin-top: ppx(90);
                     }
+                    .store-card__description-note {
+                        display: block;
+                        font-size: spx(29);
+                        font-weight: 500;
+                        line-height: 160%;
+                        letter-spacing: spx(0.29);
+                        margin-top: spx(30);
+
+                        @include tablet-up {
+                            font-size: ppx(30 * $pc-to-tab-ratio);
+                            letter-spacing: ppx(0.3 * $pc-to-tab-ratio);
+                            margin-top: 0;
+                        }
+
+                        @include desktop-up {
+                            font-size: ppx(30);
+                            line-height: 200%;
+                            letter-spacing: ppx(0.3);
+                        }
+                    }
                 }
 
                 .business-detail__official-link {
@@ -278,9 +308,11 @@
                     width: max-content;
                     margin-inline: auto;
                     margin-top: spx(40);
+                    padding-bottom: spx(30);
                     @include tablet-up {
                         gap: ppx(13 * $pc-to-tab-ratio);
                         margin-top: ppx(70 * $pc-to-tab-ratio);
+                        padding-bottom: 0;
                     }
                     @include desktop-up {
                         gap: ppx(13);
@@ -349,26 +381,41 @@
                 }
 
                 .store-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: spx(50);
+                    padding-bottom: spx(250);
+                    margin-top: spx(70);
+                    @include tablet-up {
+                        gap: ppx(60 * $pc-to-tab-ratio);
+                        padding-bottom: ppx(350 * $pc-to-tab-ratio);
+                        margin-top: ppx(110 * $pc-to-tab-ratio);
+                    }
+                    @include desktop-up {
+                        gap: ppx(60);
+                        padding-bottom: ppx(350);
+                        margin-top: ppx(110);
+                    }
                     .store-list__item {
                         .store-card {
                             background: linear-gradient(156deg, #fff 59.5%, #efeaea 100%);
                             box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
                             width: spx(640);
-                            height: spx(977);
+                            height: auto;
                             margin-inline: auto;
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                             gap: spx(40);
+                            padding-bottom: spx(60);
                             @include tablet-up {
                                 width: ppx(1865 * $pc-to-tab-ratio);
-                                height: ppx(435 * $pc-to-tab-ratio);
                                 flex-direction: row;
                                 gap: ppx(80 * $pc-to-tab-ratio);
+                                padding-bottom: 0;
                             }
                             @include desktop-up {
                                 width: ppx(1865);
-                                height: ppx(435);
                                 gap: ppx(80);
                             }
                             .store-card__image {
@@ -428,6 +475,12 @@
                                         @include desktop-up {
                                             font-size: ppx(45);
                                             letter-spacing: ppx(4.5);
+                                        }
+                                        .only-sp {
+                                            display: block;
+                                            @include tablet-up {
+                                                display: none;
+                                            }
                                         }
                                     }
                                 }
@@ -728,6 +781,15 @@
                             }
                         }
                     }
+                }
+            }
+        }
+
+        // 最後のbusiness-detail内のstore-listのpadding-bottomを0に
+        .business-detail:last-child {
+            .business-detail__stores {
+                .store-list {
+                    padding-bottom: 0;
                 }
             }
         }

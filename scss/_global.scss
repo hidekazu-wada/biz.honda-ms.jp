@@ -6,6 +6,15 @@ html {
     scroll-behavior: smooth;
     font-family: $font-noto-sans-jp;
     line-height: 1;
+    scroll-padding-top: $header-height-mobile; // ヘッダー高さ変数を使用
+
+    @include tablet-up {
+        scroll-padding-top: $header-height-tablet;
+    }
+
+    @include desktop-up {
+        scroll-padding-top: $header-height-desktop;
+    }
 
     body {
         width: 100vw;
