@@ -276,6 +276,22 @@ svg {
   }
 }
 
+.fade-in-up {
+  opacity: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+  transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
+}
+
+.fade-in-up.is-inview {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .site-header.tablet-up.in-top-page-hero {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2304,8 +2320,10 @@ body.menu-open {
   color: #fff;
   border-radius: 3.8888888889vw;
   position: relative;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, opacity 0.6s ease, -webkit-transform 0.6s ease;
+  transition: background-color 0.3s ease, opacity 0.6s ease, -webkit-transform 0.6s ease;
+  transition: background-color 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  transition: background-color 0.3s ease, opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
 }
 @media (min-width: 768px) {
   .page-top .business-section .business-section__inner .business-list .business-item {
@@ -2855,8 +2873,10 @@ body.menu-open {
   border-radius: 3.8888888889vw;
   color: #fff;
   position: relative;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, opacity 0.6s ease, -webkit-transform 0.6s ease;
+  transition: background-color 0.3s ease, opacity 0.6s ease, -webkit-transform 0.6s ease;
+  transition: background-color 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  transition: background-color 0.3s ease, opacity 0.6s ease, transform 0.6s ease, -webkit-transform 0.6s ease;
 }
 @media (min-width: 768px) {
   .business-page .business-section .business-section__content .business-list .business-item {

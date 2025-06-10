@@ -697,7 +697,10 @@
                     color: $base_color_white;
                     border-radius: spx(28);
                     position: relative;
-                    transition: background-color 0.3s ease;
+                    transition:
+                        background-color 0.3s ease,
+                        opacity 0.6s ease,
+                        transform 0.6s ease;
                     @include tablet-up {
                         width: ppx(675 * $pc-to-tab-ratio);
                         height: ppx(240 * $pc-to-tab-ratio);
