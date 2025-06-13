@@ -1567,7 +1567,7 @@ body.menu-open {
 @media (min-width: 768px) {
   .page-top .top-page-hero .top-page-hero__content {
     margin-top: 0;
-    height: 80vh;
+    height: 70vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
