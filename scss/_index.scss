@@ -15,10 +15,16 @@
         .top-page-hero__content {
             margin-top: spx(174);
             @include tablet-up {
-                margin-top: ppx(237 * $pc-to-tab-ratio);
+                margin-top: 0;
+                height: 80vh;
+                display: flex;
+                align-items: center;
             }
             @include desktop-up {
                 margin-top: ppx(237);
+                height: auto;
+                display: block;
+                align-items: unset;
             }
             .hero-message {
                 .hero-message__title {
@@ -35,15 +41,16 @@
                         transform: translateY(30px);
 
                         @include tablet-up {
-                            font-size: ppx(85 * $pc-to-tab-ratio);
-                            letter-spacing: ppx(4.25 * $pc-to-tab-ratio);
-                            margin-left: unset;
-                            text-align: center;
+                            font-size: tpx(162);
+                            letter-spacing: tpx(8.1);
+                            margin-left: tpx(236);
                         }
 
                         @include desktop-up {
                             font-size: ppx(85);
                             letter-spacing: ppx(4.25);
+                            margin-left: unset;
+                            text-align: center;
                         }
                     }
 
@@ -61,12 +68,11 @@
                         transform: translateY(30px);
 
                         @include tablet-up {
-                            font-size: ppx(115 * $pc-to-tab-ratio);
-                            line-height: 100%;
-                            letter-spacing: ppx(5.75 * $pc-to-tab-ratio);
-                            margin-left: unset;
-                            text-align: center;
-                            margin-top: ppx(62 * $pc-to-tab-ratio);
+                            font-size: tpx(201);
+                            line-height: 130%;
+                            letter-spacing: tpx(10);
+                            margin-top: tpx(56);
+                            margin-left: tpx(236);
                         }
 
                         @include desktop-up {
@@ -74,10 +80,12 @@
                             line-height: 100%;
                             letter-spacing: ppx(5.75);
                             margin-top: ppx(62);
+                            margin-left: unset;
+                            text-align: center;
                         }
-                        .sp-only {
+                        .sp-tab {
                             display: block;
-                            @include tablet-up {
+                            @include desktop-up {
                                 display: none;
                             }
                         }
@@ -96,15 +104,16 @@
                     transform: translateY(30px);
 
                     @include tablet-up {
-                        font-size: ppx(52 * $pc-to-tab-ratio);
-                        margin-left: unset;
-                        text-align: center;
-                        margin-top: ppx(78 * $pc-to-tab-ratio);
+                        font-size: tpx(93);
+                        margin-top: tpx(33);
+                        margin-left: tpx(254);
                     }
 
                     @include desktop-up {
                         font-size: ppx(52);
                         margin-top: ppx(78);
+                        margin-left: unset;
+                        text-align: center;
                     }
                 }
             }
@@ -114,14 +123,11 @@
                 // アニメーション初期状態
                 opacity: 0;
                 transform: translateY(30px);
-                @include tablet-up {
+                @include desktop-up {
                     display: block;
                     width: max-content;
                     height: max-content;
                     margin-inline: auto;
-                    margin-top: ppx(54 * $pc-to-tab-ratio);
-                }
-                @include desktop-up {
                     margin-top: ppx(54);
                 }
                 .scroll-arrow {
@@ -146,10 +152,11 @@
                     width: spx(406);
                     height: auto;
                     @include tablet-up {
-                        width: ppx(1147 * $pc-to-tab-ratio);
+                        width: tpx(1414 * $pc-to-tab-ratio);
                     }
                     @include desktop-up {
                         width: ppx(1147);
+                        right: ppx(30);
                     }
                     .hero-image {
                         width: 100%;
@@ -159,16 +166,18 @@
 
                 &.hero-images__item--family {
                     position: absolute;
-                    left: 0;
+                    left: spx(118);
                     bottom: 0;
                     z-index: 2;
                     width: spx(183);
                     height: auto;
                     @include tablet-up {
-                        width: ppx(393 * $pc-to-tab-ratio);
+                        width: tpx(539);
+                        left: tpx(17);
                     }
                     @include desktop-up {
                         width: ppx(393);
+                        left: ppx(227);
                     }
                     .hero-image {
                         width: 100%;
@@ -178,16 +187,18 @@
 
                 &.hero-images__item--car {
                     position: absolute;
-                    left: 0;
+                    left: spx(-70);
                     bottom: 0;
                     z-index: 1;
                     width: spx(512);
                     height: auto;
                     @include tablet-up {
-                        width: ppx(1098 * $pc-to-tab-ratio);
+                        width: tpx(1506);
+                        left: tpx(-537);
                     }
                     @include desktop-up {
                         width: ppx(1098);
+                        left: ppx(-177);
                     }
                     .hero-image {
                         width: 100%;
@@ -402,19 +413,43 @@
         }
 
         .recruit__header {
-            margin-left: spx(56);
+            position: relative;
+            padding-bottom: spx(103);
 
             @include tablet-up {
                 margin-left: ppx(220 * $pc-to-tab-ratio);
+                padding-bottom: 0;
             }
 
             @include desktop-up {
                 margin-left: ppx(220);
             }
+            &::after {
+                content: "";
+                display: block;
+                width: 1px;
+                height: spx(73);
+                background-color: $base_color_2;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                @include tablet-up {
+                    display: none;
+                }
+                @include desktop-up {
+                }
+            }
+            .section-title {
+                justify-self: center;
+                @include tablet-up {
+                    justify-self: unset;
+                }
+            }
         }
 
         .recruit__text {
-            margin-top: spx(52);
+            margin-top: spx(19);
 
             @include tablet-up {
                 margin-top: ppx(90 * $pc-to-tab-ratio);
@@ -463,7 +498,7 @@
                 margin-top: ppx(468 * $pc-to-tab-ratio);
                 width: ppx(771 * $pc-to-tab-ratio);
                 margin-inline: unset;
-                margin-left: ppx(1449 * $pc-to-tab-ratio);
+                margin-left: 59vw;
             }
 
             @include desktop-up {
@@ -611,7 +646,7 @@
             @include tablet-up {
                 margin-inline: unset;
                 margin-top: ppx(48 * $pc-to-tab-ratio);
-                margin-left: ppx(1449 * $pc-to-tab-ratio);
+                margin-left: 59vw;
             }
 
             @include desktop-up {
