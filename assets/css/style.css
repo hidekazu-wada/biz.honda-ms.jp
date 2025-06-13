@@ -2664,13 +2664,13 @@ body.menu-open {
 }
 @media (min-width: 768px) {
   .about-page .about-section__details .about-section__detail-list {
-    width: 70.8984375vw;
+    width: 73.046875vw;
     gap: 1.71875vw;
   }
 }
 @media (min-width: 1024px) {
   .about-page .about-section__details .about-section__detail-list {
-    width: 64.453125vw;
+    width: 66.40625vw;
     gap: 1.5625vw;
   }
 }
@@ -2693,12 +2693,14 @@ body.menu-open {
             flex-direction: row;
     gap: 4.5833333333vw;
     padding-bottom: 1.890625vw;
+    padding-left: 1.50390625vw;
   }
 }
 @media (min-width: 1024px) {
   .about-page .about-section__details .about-section__detail-list .about-section__detail-item {
     gap: 4.1666666667vw;
     padding-bottom: 1.71875vw;
+    padding-left: 1.3671875vw;
   }
 }
 .about-page .about-section__details .about-section__detail-list .about-section__detail-item::after {
@@ -3121,7 +3123,7 @@ body.menu-open {
   .business-page .business-details .business-detail .business-detail__overview .business-detail__description {
     font-size: 1.50390625vw;
     letter-spacing: 0.0150390625vw;
-    width: 57.44921875vw;
+    width: 57.75vw;
     margin-top: 3.8671875vw;
   }
 }
@@ -3129,7 +3131,7 @@ body.menu-open {
   .business-page .business-details .business-detail .business-detail__overview .business-detail__description {
     font-size: 1.3671875vw;
     letter-spacing: 0.013671875vw;
-    width: 52.2265625vw;
+    width: 52.5vw;
     margin-top: 3.515625vw;
   }
 }
@@ -3293,6 +3295,9 @@ body.menu-open {
             flex-direction: row;
     gap: 3.4375vw;
     padding-bottom: 0;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 @media (min-width: 1024px) {
