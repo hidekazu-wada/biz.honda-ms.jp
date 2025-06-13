@@ -300,6 +300,8 @@ svg {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-left: 4.4444444444vw;
+  position: relative;
+  z-index: 2000;
 }
 @media (min-width: 768px) {
   .site-header.tablet-up.in-top-page-hero {
@@ -1556,7 +1558,7 @@ body.menu-open {
 }
 @media (min-width: 768px) {
   .page-top .top-page-hero {
-    height: 100lvh;
+    height: 100svh;
   }
 }
 .page-top .top-page-hero .top-page-hero__content {

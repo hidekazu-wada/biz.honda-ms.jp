@@ -8,7 +8,7 @@
         width: 100vw;
         height: calc(100lvh - spx(130));
         @include tablet-up {
-            height: 100lvh;
+            height: 100svh;
         }
         @include desktop-up {
         }
