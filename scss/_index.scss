@@ -38,7 +38,6 @@
                         margin-left: spx(68);
                         // アニメーション初期状態
                         opacity: 0;
-                        transform: translateY(30px);
 
                         @include tablet-up {
                             font-size: tpx(162);
@@ -65,7 +64,6 @@
                         margin-top: spx(24);
                         // アニメーション初期状態
                         opacity: 0;
-                        transform: translateY(30px);
 
                         @include tablet-up {
                             font-size: tpx(201);
@@ -101,7 +99,6 @@
                     margin-top: spx(14);
                     // アニメーション初期状態
                     opacity: 0;
-                    transform: translateY(30px);
 
                     @include tablet-up {
                         font-size: tpx(93);
@@ -122,7 +119,6 @@
                 display: none;
                 // アニメーション初期状態
                 opacity: 0;
-                transform: translateY(30px);
                 @include desktop-up {
                     display: block;
                     width: max-content;
