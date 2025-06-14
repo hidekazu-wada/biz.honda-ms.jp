@@ -127,11 +127,11 @@
             flex-direction: column;
             gap: spx(20);
             @include tablet-up {
-                width: ppx(1650 * $pc-to-tab-ratio);
+                width: ppx(1700 * $pc-to-tab-ratio);
                 gap: ppx(40 * $pc-to-tab-ratio);
             }
             @include desktop-up {
-                width: ppx(1650);
+                width: ppx(1700);
                 gap: ppx(40);
             }
             .about-section__detail-item {
@@ -143,10 +143,12 @@
                     flex-direction: row;
                     gap: spx(30 * $pc-to-tab-ratio);
                     padding-bottom: ppx(44 * $pc-to-tab-ratio);
+                    padding-left: ppx(35 * $pc-to-tab-ratio);
                 }
                 @include desktop-up {
                     gap: spx(30);
                     padding-bottom: ppx(44);
+                    padding-left: ppx(35);
                 }
                 &::after {
                     content: "";

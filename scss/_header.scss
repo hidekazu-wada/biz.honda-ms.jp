@@ -8,6 +8,8 @@
             display: flex;
             justify-content: space-between;
             padding-left: spx(32);
+            position: relative;
+            z-index: 2000;
             @include tablet-up {
                 padding-left: ppx(81 * $pc-to-tab-ratio);
             }

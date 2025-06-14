@@ -1,30 +1,30 @@
 /**
  * Hero Section Animation
- * GSAPを使った4段階フェードインアニメーション
+ * GSAPのfromToを使った4段階フェードインアニメーション
  */
 
 // アニメーション設定
 const heroAnimationConfig = {
-  // 各要素の表示時間（秒）- ラグジュアリーなゆったり感
+  // 各要素の表示時間（秒）
   durations: {
-    lead: 0.8, // まいにちを（0.8 → 1.2秒）
-    main: 1.2, // もっと便利に、もっと楽しく。（1.0 → 1.8秒）
-    english: 0.6, // More convenient & fun.（0.6 → 1.0秒）
-    arrow: 0.4, // 矢印（0.4 → 0.8秒）
+    lead: 0.8,
+    main: 1.0,
+    english: 0.6,
+    arrow: 0.4,
   },
 
-  // 前の要素からの遅延時間（秒）- よりゆったりとした間
+  // 前の要素からの遅延時間（秒）
   delays: {
-    lead: 0,
-    main: 0.6, // まいにちを表示開始から0.6秒後（0.3 → 0.6秒）
-    english: 0.8, // もっと便利に...表示開始から0.8秒後（0.2 → 0.8秒）
-    arrow: 0.4, // More convenient...表示開始から0.4秒後（0.1 → 0.4秒）
+    lead: 0.3,
+    main: 0.8,
+    english: 1.3,
+    arrow: 1.8,
   },
 
-  // イージング - より滑らかで上品な動き
-  easing: 'power1.out',
+  // イージング
+  easing: 'power2.out',
 
-  // Y軸移動距離 - より目立つ動き
+  // Y軸移動距離
   translateY: 30,
 };
 
@@ -56,65 +56,77 @@ function startHeroAnimation() {
     return;
   }
 
-  // 初期状態を設定（念のため）
-  gsap.set(Object.values(elements), {
-    opacity: 0,
-    y: heroAnimationConfig.translateY,
-  });
-
-  // タイムラインを作成
-  const tl = gsap.timeline();
+  console.log('Starting hero animation with fromTo');
 
   // 1. まいにちを
-  tl.to(elements.lead, {
-    opacity: 1,
-    y: 0,
-    duration: heroAnimationConfig.durations.lead,
-    ease: heroAnimationConfig.easing,
-  });
+  gsap.fromTo(
+    elements.lead,
+    {
+      opacity: 0,
+      y: heroAnimationConfig.translateY,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: heroAnimationConfig.durations.lead,
+      ease: heroAnimationConfig.easing,
+      delay: heroAnimationConfig.delays.lead,
+      onComplete: () => console.log('Lead animation completed'),
+    }
+  );
 
-  // 2. もっと便利に、もっと楽しく。
-  tl.to(
+  // 2. もっと便利に、もっと楽しく
+  gsap.fromTo(
     elements.main,
+    {
+      opacity: 0,
+      y: heroAnimationConfig.translateY,
+    },
     {
       opacity: 1,
       y: 0,
       duration: heroAnimationConfig.durations.main,
       ease: heroAnimationConfig.easing,
-    },
-    `-=${heroAnimationConfig.durations.lead - heroAnimationConfig.delays.main}`
+      delay: heroAnimationConfig.delays.main,
+      onComplete: () => console.log('Main animation completed'),
+    }
   );
 
   // 3. More convenient & fun.
-  tl.to(
+  gsap.fromTo(
     elements.english,
+    {
+      opacity: 0,
+      y: heroAnimationConfig.translateY,
+    },
     {
       opacity: 1,
       y: 0,
       duration: heroAnimationConfig.durations.english,
       ease: heroAnimationConfig.easing,
-    },
-    `-=${
-      heroAnimationConfig.durations.main - heroAnimationConfig.delays.english
-    }`
+      delay: heroAnimationConfig.delays.english,
+      onComplete: () => console.log('English animation completed'),
+    }
   );
 
-  // 4. 矢印
-  tl.to(
+  // 4. スクロールインジケーター
+  gsap.fromTo(
     elements.arrow,
+    {
+      opacity: 0,
+      y: heroAnimationConfig.translateY,
+    },
     {
       opacity: 1,
       y: 0,
       duration: heroAnimationConfig.durations.arrow,
       ease: heroAnimationConfig.easing,
-    },
-    `-=${
-      heroAnimationConfig.durations.english - heroAnimationConfig.delays.arrow
-    }`
+      delay: heroAnimationConfig.delays.arrow,
+      onComplete: () => console.log('Arrow animation completed'),
+    }
   );
 
-  // デバッグ用
-  console.log('Hero animation started');
+  console.log('Hero animation started with fromTo method');
 }
 
 /**
@@ -124,19 +136,17 @@ function adjustAnimationForDevice() {
   const isMobile = window.innerWidth < 768;
 
   if (isMobile) {
-    // モバイルでもラグジュアリーな印象を保つ
     heroAnimationConfig.durations = {
-      lead: 1.0, // デスクトップより少し速め
-      main: 1.4,
-      english: 0.8,
-      arrow: 0.6,
+      lead: 0.6,
+      main: 0.8,
+      english: 0.5,
+      arrow: 0.4,
     };
-    // 遅延時間も調整
     heroAnimationConfig.delays = {
-      lead: 0,
-      main: 0.4,
-      english: 0.6,
-      arrow: 0.3,
+      lead: 0.2,
+      main: 0.6,
+      english: 1.0,
+      arrow: 1.4,
     };
   }
 }
@@ -171,6 +181,8 @@ function respectsReducedMotion() {
  * 初期化とアニメーション実行
  */
 function initHeroAnimation() {
+  console.log('Initializing hero animation');
+
   // reduced-motionのチェック
   if (respectsReducedMotion()) {
     return;

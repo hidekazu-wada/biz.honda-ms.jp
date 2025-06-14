@@ -15,6 +15,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
     />
+    <meta
+      name="format-detection"
+      content="telephone=no, address=no, email=no, date=no"
+    />
     <meta name="robots" content="noindex" />
 
     <!-- Google Fonts -->
@@ -44,6 +48,13 @@
 
     <!-- 固定ヘッダー制御 -->
     <script defer src="../assets/js/fixed-header.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="../assets/js/lib/gsap.min.js"></script>
+    <script src="../assets/js/lib/ScrollTrigger.min.js"></script>
+
+    <!-- スクロールフェードアニメーション -->
+    <script defer src="../assets/js/scroll-fade.js"></script>
   </head>
 
   <body class="about-page">
@@ -51,17 +62,7 @@
     <div class="loading-overlay">
       <img
         class="loading-logo"
-        src="../images/global/fallback/loading-logo-720.png"
-        srcset="
-          ../images/global/loading-logo-720.webp   720w,
-          ../images/global/loading-logo-1280.webp 1280w,
-          ../images/global/loading-logo-2560.webp 2560w
-        "
-        sizes="
-    (min-width: 1024px) 15vw,
-    (min-width: 480px) 20vw,
-    100vw
-  "
+        src="/images/global/loading-logo.webp"
         alt="ホンダ自動車販売株式会社のロゴ"
       />
     </div>
@@ -171,7 +172,7 @@
 
           <div class="recruit-section">
             <a
-              href="http://honda-ms.jp/pages/recruit.html"
+              href="https://honda-ms.wadahide.com/pages/recruit.html"
               class="recruit-link"
               target="_blank"
             >
@@ -240,7 +241,7 @@
 
         <div class="sp-recruit-section">
           <a
-            href="http://honda-ms.jp/pages/recruit.html"
+            href="https://honda-ms.wadahide.com/pages/recruit.html"
             class="sp-recruit-link"
             target="_blank"
           >
@@ -405,7 +406,7 @@
             </li>
             <li class="nav-item">
               <a
-                href="http://honda-ms.jp/pages/recruit.html"
+                href="https://honda-ms.wadahide.com/pages/recruit.html"
                 target="_blank"
                 class="nav-link"
               >
@@ -574,7 +575,7 @@
         <div class="page-bottom-bar__inner">
           <div class="page-bottom-bar__brand">
             <a
-              href="https://honda-ms.jp/"
+              href="https://honda-ms.wadahide.com/"
               class="page-bottom-bar__brand-link"
               target="_blank"
               rel="noopener noreferrer"

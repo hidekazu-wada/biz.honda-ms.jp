@@ -15,6 +15,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
     />
+    <meta
+      name="format-detection"
+      content="telephone=no, address=no, email=no, date=no"
+    />
     <meta name="robots" content="noindex" />
 
     <!-- Google Fonts -->
@@ -44,6 +48,13 @@
 
     <!-- 固定ヘッダー制御 -->
     <script defer src="../assets/js/fixed-header.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="../assets/js/lib/gsap.min.js"></script>
+    <script src="../assets/js/lib/ScrollTrigger.min.js"></script>
+
+    <!-- スクロールフェードアニメーション -->
+    <script defer src="../assets/js/scroll-fade.js"></script>
   </head>
 
   <body class="business-page">
@@ -51,17 +62,7 @@
     <div class="loading-overlay">
       <img
         class="loading-logo"
-        src="../images/global/fallback/loading-logo-720.png"
-        srcset="
-          ../images/global/loading-logo-720.webp   720w,
-          ../images/global/loading-logo-1280.webp 1280w,
-          ../images/global/loading-logo-2560.webp 2560w
-        "
-        sizes="
-    (min-width: 1024px) 15vw,
-    (min-width: 480px) 20vw,
-    100vw
-  "
+        src="/images/global/loading-logo.webp"
         alt="ホンダ自動車販売株式会社のロゴ"
       />
     </div>
@@ -171,7 +172,7 @@
 
           <div class="recruit-section">
             <a
-              href="http://honda-ms.jp/pages/recruit.html"
+              href="https://honda-ms.wadahide.com/pages/recruit.html"
               class="recruit-link"
               target="_blank"
             >
@@ -240,7 +241,7 @@
 
         <div class="sp-recruit-section">
           <a
-            href="http://honda-ms.jp/pages/recruit.html"
+            href="https://honda-ms.wadahide.com/pages/recruit.html"
             class="sp-recruit-link"
             target="_blank"
           >
@@ -405,7 +406,7 @@
             </li>
             <li class="nav-item">
               <a
-                href="http://honda-ms.jp/pages/recruit.html"
+                href="https://honda-ms.wadahide.com/pages/recruit.html"
                 target="_blank"
                 class="nav-link"
               >
@@ -838,18 +839,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img01-01-s.png"
-                      srcset="
-                        /images/business/img01-01-s.webp 1280w,
-                        /images/business/img01-01-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img01-01.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -887,7 +877,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3114)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -906,7 +896,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3114">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -966,18 +956,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img01-02-s.png"
-                      srcset="
-                        /images/business/img01-02-s.webp 1280w,
-                        /images/business/img01-02-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img01-02.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1015,7 +994,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3115)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -1034,7 +1013,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3115">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -1092,18 +1071,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img01-03-s.png"
-                      srcset="
-                        /images/business/img01-03-s.webp 1280w,
-                        /images/business/img01-03-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img01-03.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1141,7 +1109,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3116)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -1160,7 +1128,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3116">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -1218,18 +1186,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img01-04-s.png"
-                      srcset="
-                        /images/business/img01-04-s.webp 1280w,
-                        /images/business/img01-04-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img01-04.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1267,7 +1224,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3117)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -1286,7 +1243,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3117">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -1363,18 +1320,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img02-01-s.png"
-                      srcset="
-                        /images/business/img02-01-s.webp 1280w,
-                        /images/business/img02-01-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img02-01.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1412,7 +1358,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3118)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -1431,7 +1377,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3118">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -1506,18 +1452,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img03-01-s.png"
-                      srcset="
-                        /images/business/img03-01-s.webp 1280w,
-                        /images/business/img03-01-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img03-01.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1555,7 +1490,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3119)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -1574,7 +1509,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3119">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -1624,18 +1559,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img03-02-s.png"
-                      srcset="
-                        /images/business/img03-02-s.webp 1280w,
-                        /images/business/img03-02-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img03-02.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1673,7 +1597,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3120)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -1692,7 +1616,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3120">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -1763,18 +1687,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img04-01-s.png"
-                      srcset="
-                        /images/business/img04-01-s.webp 1280w,
-                        /images/business/img04-01-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img04-01.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1817,18 +1730,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img04-02-s.png"
-                      srcset="
-                        /images/business/img04-02-s.webp 1280w,
-                        /images/business/img04-02-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img04-02.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1871,18 +1773,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img04-03-s.png"
-                      srcset="
-                        /images/business/img04-03-s.webp 1280w,
-                        /images/business/img04-03-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img04-03.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1945,18 +1836,7 @@
                 <article class="store-card">
                   <div class="store-card__image">
                     <!-- 店舗画像 -->
-                    <img
-                      src="/images/business/fallback/img05-01-s.png"
-                      srcset="
-                        /images/business/img05-01-s.webp 1280w,
-                        /images/business/img05-01-m.webp 2560w
-                      "
-                      sizes="
-                         (min-width: 1024px) 30vw,
-                         100vw
-                       "
-                      alt="店舗画像"
-                    />
+                    <img src="/images/business/img05-01.webp" alt="店舗画像" />
                   </div>
                   <div class="store-card__content">
                     <header class="store-card__header">
@@ -1996,7 +1876,7 @@
                               stroke="#C11313"
                               stroke-width="3"
                             />
-                            <g clip-path="url(#clip0_177_3113)">
+                            <g clip-path="url(#clip0_177_3121)">
                               <path
                                 d="M102.273 39.8594H37.7271C34.565 39.8594 32 42.4244 32 45.5865V93.8465C32 97.0087 34.565 99.5737 37.7271 99.5737H102.273C105.435 99.5737 108 97.0087 108 93.8465V45.5865C108 42.4244 105.435 39.8594 102.273 39.8594ZM34.7143 45.5865C34.7143 43.9308 36.0714 42.5737 37.7271 42.5737H102.273C103.929 42.5737 105.286 43.9308 105.286 45.5865V52.0737H34.7143V45.5865ZM102.273 96.8594H37.7271C36.0714 96.8594 34.7143 95.5022 34.7143 93.8465V54.7879H105.286V93.8465C105.286 95.5022 103.929 96.8594 102.273 96.8594Z"
                                 fill="#C11313"
@@ -2015,7 +1895,7 @@
                               />
                             </g>
                             <defs>
-                              <clipPath id="clip0_177_3113">
+                              <clipPath id="clip0_177_3121">
                                 <rect
                                   width="76"
                                   height="59.7143"
@@ -2075,7 +1955,7 @@
               <a href="/" class="breadcrumb__link">TOP</a>
             </li>
             <li class="breadcrumb__separator" aria-hidden="true">＞</li>
-            <li class="breadcrumb__item" aria-current="page">会社概要</li>
+            <li class="breadcrumb__item" aria-current="page">事業概要</li>
           </ul>
         </div>
       </nav>
@@ -2084,7 +1964,7 @@
         <div class="page-bottom-bar__inner">
           <div class="page-bottom-bar__brand">
             <a
-              href="https://honda-ms.jp/"
+              href="https://honda-ms.wadahide.com/"
               class="page-bottom-bar__brand-link"
               target="_blank"
               rel="noopener noreferrer"

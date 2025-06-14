@@ -271,14 +271,14 @@
                     @include tablet-up {
                         font-size: ppx(35 * $pc-to-tab-ratio);
                         letter-spacing: ppx(0.35 * $pc-to-tab-ratio);
-                        width: ppx(1337 * $pc-to-tab-ratio);
+                        width: 52.5vw * $pc-to-tab-ratio;
                         margin-top: ppx(90 * $pc-to-tab-ratio);
                     }
 
                     @include desktop-up {
                         font-size: ppx(35);
                         letter-spacing: ppx(0.35);
-                        width: ppx(1337);
+                        width: 52.5vw;
                         margin-top: ppx(90);
                     }
                     .store-card__description-note {
@@ -416,6 +416,7 @@
                                 flex-direction: row;
                                 gap: ppx(80 * $pc-to-tab-ratio);
                                 padding-bottom: 0;
+                                align-items: flex-start;
                             }
                             @include desktop-up {
                                 width: ppx(1865);
