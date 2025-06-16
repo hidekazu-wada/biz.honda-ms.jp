@@ -444,8 +444,10 @@
             }
             .section-title {
                 justify-self: center;
+                margin-inline: auto;
                 @include tablet-up {
                     justify-self: unset;
+                    margin-inline: unset;
                 }
             }
         }

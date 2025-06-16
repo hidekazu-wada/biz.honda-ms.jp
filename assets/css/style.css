@@ -2023,10 +2023,12 @@ body.menu-open {
 }
 .page-top .recruit-section-in-top .recruit__header .section-title {
   justify-self: center;
+  margin-inline: auto;
 }
 @media (min-width: 768px) {
   .page-top .recruit-section-in-top .recruit__header .section-title {
     justify-self: unset;
+    margin-inline: unset;
   }
 }
 .page-top .recruit-section-in-top .recruit__text {
