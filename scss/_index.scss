@@ -62,8 +62,6 @@
                         letter-spacing: spx(4.35);
                         margin-left: spx(68);
                         margin-top: spx(24);
-                        // アニメーション初期状態
-                        opacity: 0;
 
                         @include tablet-up {
                             font-size: tpx(201);
@@ -86,6 +84,14 @@
                             @include desktop-up {
                                 display: none;
                             }
+                        }
+                        .hero-message__part1 {
+                            display: inline-block;
+                            opacity: 0;
+                        }
+                        .hero-message__part2 {
+                            display: inline-block;
+                            opacity: 0;
                         }
                     }
                 }
