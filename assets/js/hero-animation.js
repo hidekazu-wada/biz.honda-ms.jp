@@ -29,6 +29,13 @@ const heroAnimationConfig = {
 };
 
 /**
+ * デバイス幅が狭い（タブレット縦より小さい）かどうかの判定
+ */
+function isNarrowDevice() {
+  return window.innerWidth < 1024;
+}
+
+/**
  * ヒーローアニメーションを開始
  */
 function startHeroAnimation() {
@@ -38,10 +45,14 @@ function startHeroAnimation() {
     return;
   }
 
+  // デバイス判定
+  const isNarrow = isNarrowDevice();
+  
   // アニメーション対象要素
   const elements = {
     lead: document.querySelector('.hero-message__lead'),
-    main: document.querySelector('.hero-message__main'),
+    part1: document.querySelector('.hero-message__part1'),
+    part2: document.querySelector('.hero-message__part2'),
     english: document.querySelector('.hero-message__english'),
     arrow: document.querySelector('.scroll-indicator'),
   };
@@ -56,77 +67,99 @@ function startHeroAnimation() {
     return;
   }
 
-  console.log('Starting hero animation with fromTo');
-
   // 1. まいにちを
   gsap.fromTo(
     elements.lead,
     {
       opacity: 0,
       y: heroAnimationConfig.translateY,
+      visibility: 'hidden',
     },
     {
       opacity: 1,
       y: 0,
+      visibility: 'visible',
       duration: heroAnimationConfig.durations.lead,
       ease: heroAnimationConfig.easing,
       delay: heroAnimationConfig.delays.lead,
-      onComplete: () => console.log('Lead animation completed'),
     }
   );
 
-  // 2. もっと便利に、もっと楽しく
+  // 2. もっと便利に（全デバイス共通）
+  const part1Delay = heroAnimationConfig.delays.main;
   gsap.fromTo(
-    elements.main,
+    elements.part1,
     {
       opacity: 0,
       y: heroAnimationConfig.translateY,
+      visibility: 'hidden',
     },
     {
       opacity: 1,
       y: 0,
+      visibility: 'visible',
       duration: heroAnimationConfig.durations.main,
       ease: heroAnimationConfig.easing,
-      delay: heroAnimationConfig.delays.main,
-      onComplete: () => console.log('Main animation completed'),
+      delay: part1Delay,
     }
   );
 
-  // 3. More convenient & fun.
+  // 3. もっと楽しく（デバイスによってタイミング調整）
+  const part2Delay = isNarrow ? heroAnimationConfig.delays.main + 0.5 : heroAnimationConfig.delays.main;
+  gsap.fromTo(
+    elements.part2,
+    {
+      opacity: 0,
+      y: heroAnimationConfig.translateY,
+      visibility: 'hidden',
+    },
+    {
+      opacity: 1,
+      y: 0,
+      visibility: 'visible',
+      duration: heroAnimationConfig.durations.main,
+      ease: heroAnimationConfig.easing,
+      delay: part2Delay,
+    }
+  );
+
+  // 4. More convenient & fun.
+  const englishDelay = isNarrow ? heroAnimationConfig.delays.english + 0.5 : heroAnimationConfig.delays.english;
   gsap.fromTo(
     elements.english,
     {
       opacity: 0,
       y: heroAnimationConfig.translateY,
+      visibility: 'hidden',
     },
     {
       opacity: 1,
       y: 0,
+      visibility: 'visible',
       duration: heroAnimationConfig.durations.english,
       ease: heroAnimationConfig.easing,
-      delay: heroAnimationConfig.delays.english,
-      onComplete: () => console.log('English animation completed'),
+      delay: englishDelay,
     }
   );
 
-  // 4. スクロールインジケーター
+  // 5. スクロールインジケーター
+  const arrowDelay = isNarrow ? heroAnimationConfig.delays.arrow + 0.5 : heroAnimationConfig.delays.arrow;
   gsap.fromTo(
     elements.arrow,
     {
       opacity: 0,
       y: heroAnimationConfig.translateY,
+      visibility: 'hidden',
     },
     {
       opacity: 1,
       y: 0,
+      visibility: 'visible',
       duration: heroAnimationConfig.durations.arrow,
       ease: heroAnimationConfig.easing,
-      delay: heroAnimationConfig.delays.arrow,
-      onComplete: () => console.log('Arrow animation completed'),
+      delay: arrowDelay,
     }
   );
-
-  console.log('Hero animation started with fromTo method');
 }
 
 /**
@@ -159,7 +192,8 @@ function respectsReducedMotion() {
     // アニメーションを無効化し、即座に表示
     const elements = [
       '.hero-message__lead',
-      '.hero-message__main',
+      '.hero-message__part1',
+      '.hero-message__part2',
       '.hero-message__english',
       '.scroll-indicator',
     ];
@@ -167,7 +201,7 @@ function respectsReducedMotion() {
     elements.forEach((selector) => {
       const el = document.querySelector(selector);
       if (el) {
-        gsap.set(el, { opacity: 1, y: 0 });
+        gsap.set(el, { opacity: 1, y: 0, visibility: 'visible' });
       }
     });
 
@@ -181,8 +215,6 @@ function respectsReducedMotion() {
  * 初期化とアニメーション実行
  */
 function initHeroAnimation() {
-  console.log('Initializing hero animation');
-
   // reduced-motionのチェック
   if (respectsReducedMotion()) {
     return;
