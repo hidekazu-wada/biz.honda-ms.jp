@@ -1566,7 +1566,7 @@ body.menu-open {
 }
 @media (min-width: 1024px) {
   .page-top .top-page-hero .top-page-hero__content {
-    margin-top: 9.2578125vw;
+    margin-top: 7.25vw;
     height: auto;
     display: block;
     -webkit-box-align: unset;
@@ -1706,7 +1706,7 @@ body.menu-open {
 }
 @media (min-width: 768px) {
   .page-top .top-page-hero .hero-images .hero-images__item.hero-images__item--couple {
-    width: 75.947265625vw;
+    width: 69.94vw;
   }
 }
 @media (min-width: 1024px) {
@@ -2023,10 +2023,12 @@ body.menu-open {
 }
 .page-top .recruit-section-in-top .recruit__header .section-title {
   justify-self: center;
+  margin-inline: auto;
 }
 @media (min-width: 768px) {
   .page-top .recruit-section-in-top .recruit__header .section-title {
     justify-self: unset;
+    margin-inline: unset;
   }
 }
 .page-top .recruit-section-in-top .recruit__text {
