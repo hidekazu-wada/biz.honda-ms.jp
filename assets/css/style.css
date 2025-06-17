@@ -1378,7 +1378,7 @@ body.menu-open {
   height: 100lvh;
   position: fixed;
   top: 0;
-  z-index: 2000;
+  z-index: 3000;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1395,7 +1395,6 @@ body.menu-open {
 .global-menu.only-sp .global-menu__container .global-menu__header .global-menu__logo {
   margin-top: 1.3888888889vw;
   position: absolute;
-  top: 1.3888888889vw;
   left: 4.4444444444vw;
 }
 .global-menu.only-sp .global-menu__container .global-menu__header .global-menu__logo .logo-link {
@@ -1411,7 +1410,7 @@ body.menu-open {
           align-items: center;
 }
 .global-menu.only-sp .global-menu__container .global-menu__header .global-menu__logo .logo-link img {
-  width: 21.6666666667vw;
+  width: 27.6388888889vw;
   height: auto;
 }
 .global-menu.only-sp .global-menu__container .global-menu__header .global-menu__logo .logo-link .company-name {
@@ -1542,7 +1541,7 @@ body.menu-open {
 .page-top .top-page-hero {
   position: relative;
   width: 100%;
-  height: calc(100lvh - 18.0555555556vw);
+  height: calc(100svh - 18.0555555556vw);
 }
 @media (min-width: 768px) {
   .page-top .top-page-hero {
