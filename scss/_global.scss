@@ -296,3 +296,7 @@ svg {
     // FOUC防止のみ（JavaScriptで上書きされる）
     opacity: 0;
 }
+
+button {
+    outline: none !important;
+}
