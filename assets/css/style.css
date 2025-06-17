@@ -280,6 +280,10 @@ svg {
   opacity: 0;
 }
 
+button {
+  outline: none !important;
+}
+
 .site-header.tablet-up.in-top-page-hero {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1720,7 +1724,7 @@ body.menu-open {
 }
 .page-top .top-page-hero .hero-images .hero-images__item.hero-images__item--family {
   position: absolute;
-  left: 16.3888888889vw;
+  left: 5.1388888889vw;
   bottom: 0;
   z-index: 2;
   width: 25.4166666667vw;
@@ -1744,7 +1748,7 @@ body.menu-open {
 }
 .page-top .top-page-hero .hero-images .hero-images__item.hero-images__item--car {
   position: absolute;
-  left: -9.7222222222vw;
+  left: -20.9722222222vw;
   bottom: 0;
   z-index: 1;
   width: 71.1111111111vw;
