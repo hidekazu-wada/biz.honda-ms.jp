@@ -6,7 +6,7 @@
     .top-page-hero {
         position: relative;
         width: 100%;
-        height: calc(100lvh - spx(130));
+        height: calc(100svh - spx(130));
         @include tablet-up {
             height: 100svh;
         }
